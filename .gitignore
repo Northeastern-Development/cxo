@@ -17,6 +17,8 @@
 
 # don't ignore the following specific files/folders
 !.gitignore
+!wp-config.php
+!wp-settings.php
 
 
 # don't ignore the plugins directories

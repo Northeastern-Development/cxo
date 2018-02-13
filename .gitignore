@@ -31,4 +31,4 @@ wp-content/*
 # Ignore everything in the "themes" directory, except our custom theme
 !wp-content/themes/
 wp-content/themes/*
-!wp-content/themes/nudev/
+!wp-content/themes/cxo-magazine-wp/

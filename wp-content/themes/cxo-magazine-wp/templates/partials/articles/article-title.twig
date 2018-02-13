@@ -1,0 +1,48 @@
+{% set title_image = TimberImage(post.title_image) %}
+
+{% if post.image_orientation == 'full-screen' %}
+<section class="article-title article-color--black article-title--img-{{ post.image_orientation }}" style="background-image: url({{title_image.src}});">
+{% elseif  title_image.src %}
+<section class="article-title article-color--black article-title--img-{{ post.image_orientation }}">
+{% else %}
+<section class="article-title article-color--black">
+{% endif %}
+
+  {% if title_image|length > 0 %}
+  <div class="article-title__art">
+
+    <figure class="article-title__figure">
+      <img src="{{ title_image.src }}" alt="{{ title_image.alt }}" class="article-title__img">
+    </figure>
+
+  </div>
+  {% endif %}
+
+  <div class="article-title__content">
+
+    {% if post.report_num %}
+      <div class="article-number">
+        <span class="article-number--part">Part</span>
+        <span class="article-number--number">{{ post.report_num }}</span>
+      </div>
+    {% endif %}
+
+    <h1 class="article-heading">{{ post.heading }}</h1>
+
+    {% if post.sub_heading %}
+    <p class="article-subheading">{{ post.sub_heading }}</p>
+    {% endif %}
+
+    {% if post.byline_name %}
+    <p class="article-byline">
+      <span class="article-byline__by">By</span>
+      <span class="article-byline__name">{{ post.byline_name }}</span>
+      {% if post.byline_title %}
+      <span class="article-byline__title">{{ post.byline_title }}</span>
+      {% endif %}
+    </p>
+    {% endif %}
+
+  </div>
+
+</section>

@@ -1,0 +1,6 @@
+<svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg__arrow-pagination {{context_class ? context_class: ''}}">
+  <g id="Page-1" stroke="none" stroke-width="1" fill="#000000" fill-rule="evenodd">
+    <polygon id="Combined-Shape" points="4.03309033 9 3.98780669 11 11.4939033 18.5060967 9.98959236 20.0104076 1.50613752 11.5269528 1.91846539e-13 10.0208153 9.98959236 0.0312229203 11.4957299 1.53736045" class="svg__arrow-pagination--point"></polygon>
+    <!-- <rect id="Rectangle" x="3" y="9" width="21" height="2" class="svg__arrow-pagination--stem"></rect> -->
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+<div class="landing-carousel">
+
+  {% set hero = page.get_field('hero_headlines') %}
+  <div class="landing-hero__report-header">
+    {% if hero.overline %}
+    <p class="landing-hero__report-overline">{{ hero.overline }}</p>
+    {% endif %}
+    {% if hero.headline %}
+    <h1 class="landing-hero__report-title">{{ hero.headline }}</h1>
+    {% endif %}
+    {% if hero.subheading %}
+    <p class="landing-hero__report-description">{{ hero.subheading }}</p>
+    {% endif %}
+    {% if hero.hero_cta %}
+      <a href="{{ hero.hero_cta_link }}" class="landing-hero__report-start--link">
+        <span class="landing-hero__report-start-text">{{ hero.hero_cta }}</span>
+        {% include 'partials/svg/arrow-down.svg' with {context_class: 'landing-hero__report-start-arrow'} %}
+      </a>
+    {% endif %}
+  </div>
+
+  {% for topical_post in carousel_posts %}
+    {% include 'partials/landing/hero.twig' with {post : topical_post} %}
+  {% endfor %}
+
+</div>

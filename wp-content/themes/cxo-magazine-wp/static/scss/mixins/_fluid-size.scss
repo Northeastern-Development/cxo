@@ -1,0 +1,54 @@
+// ------------------------------------------------------
+// Fluid Font Sizing
+//
+// FOR:   Dynamically changing the size of type
+//        between certain screen sizes. Think of
+//        it as a CSS-only version of FitText
+// REQ:   Depends on the `mq` media query mixin from Upbase/Up Mixin Library
+//        Depends on `strip-units` function from Upbase/Up Mixin Library
+// REF:   http://www.adrenalinmedia.com.au/blog/january-2016/this-changes-everything-css-%E2%80%98fluid-properties%E2%80%99
+// USE:   @include fluid-size(
+//          40px $bp__tablet--sm,
+//          60px $bp__desktop
+//        );
+//
+// -----------------------------------------------------
+
+@mixin fluid-size(
+  $property: font-size,
+  $min-sizes: 16px 100px,
+  $max-sizes: 60px 1400px,
+  $use-mq: true
+  ) {
+  $min-size: nth($min-sizes, 1);
+  $min-width: nth($min-sizes, 2);
+  $max-size: nth($max-sizes, 1);
+  $max-width: nth($max-sizes, 2);
+
+  $mid-size: #{($max-size - $min-size) * .5  + strip-units($min-size)};
+  $third-width: #{($max-width - $min-width) * .333 + strip-units($min-width)};
+  $twothird-width: #{($max-width - $min-width) * .666 + strip-units($min-width)};
+
+  @include mq($min-width, $third-width) {
+    #{$property}: $min-size;
+  }
+  @include mq($third-width, $twothird-width) {
+    #{$property}: $mid-size;
+  }
+  @include mq($twothird-width) {
+    #{$property}: $max-size;
+  }
+
+  .csscalc.cssvwunit & {
+    @if $use-mq {
+      @include mq($min-width, $max-width) {
+        #{$property}: calc(#{$min-size} + (#{strip-units($max-size)} - #{strip-units($min-size)}) * (100vw - #{$min-width}) / (#{strip-units($max-width)} - #{strip-units($min-width)}));
+      }
+      @include mq($max-width) {
+        #{$property}: $max-size;
+      }
+    } @else {
+      #{$property}: calc(#{$min-size} + (#{strip-units($max-size)} - #{strip-units($min-size)}) * (100vw - #{$min-width}) / (#{strip-units($max-width)} - #{strip-units($min-width)}));
+    }
+  }
+}

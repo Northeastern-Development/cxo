@@ -1,0 +1,198 @@
+// Q & A
+// -------
+// Base styles for Q & A component
+//
+// TOC:
+// 1. Basic Layout
+
+
+// 1. Basic Layout
+// -------
+
+.article-qa {
+  background-color: $color-gray-f0;
+  background-image: linear-gradient(to bottom, $color-gray-f0, $color-gray-f5 100%);
+  margin-bottom: 30px;
+
+  @include mq($bp--tablet-xl) {
+    background-color: transparent;
+    background-image: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  //Background color field
+  &:before {
+
+    @include mq($bp--tablet-xl) {
+      @include absolute(24px #{$two-col} 24px #{$two-col});
+      @include pseudo;
+      background-color: $color-gray-f0;
+      background-image: linear-gradient(to bottom, $color-gray-f0, $color-gray-f5 100%);
+      z-index: $zIndex-1;
+    }
+
+    @include mq($bp--tablet-xl) {
+      bottom: 60px;
+    }
+
+    @include mq($bp--desktop-xl) {
+      bottom: 90px;
+      left: $three-col;
+      right: $three-col;
+    }
+
+    @include mq($bp--desktop-xxxl) {
+      bottom: 120px;
+    }
+  }
+}
+
+
+.article-qa__question {
+  @include grid-child;
+  margin-bottom: 45px;
+  padding-top: 30px;
+  position: relative;
+  z-index: $zIndex-2;
+
+  @include mq($bp--tablet-xl) {
+    margin-top: 45px;
+    width: $six-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-bottom: 90px;
+    width: $four-col;
+  }
+}
+
+.article-qa__question-text {
+  color: $color-black;
+  font-family: $font-family-serif;
+  font-size: 8vw;
+  font-weight: $font-weight--reg;
+  line-height: 1.35;
+  margin-bottom: 0;
+
+  @include mq($bp--tablet-xl) {
+    @include fluid-size(
+      $property: font-size,
+      $min-sizes: 20px 100px,
+      $max-sizes: 30px 2000px);
+    line-height: 1.35;
+    text-align: center;
+  }
+}
+
+.article-qa__answers {
+  position: relative;
+  width: 100%;
+  z-index: $zIndex-2;
+}
+
+.article-qa__answer-list {
+  @include ul-null;
+
+  @include mq($bp--tablet-xl) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.article-qa__answer-list--1,
+.article-qa__answer-list--2 {
+
+  @include mq($bp--tablet-xl) {
+    flex-wrap: nowrap;
+  }
+}
+
+.article-qa__answer-item {
+  @include grid-child;
+  padding-top: 30px;
+
+  @include mq($bp--tablet-xl) {
+    min-width: $six-col;
+    max-width: $six-col;
+    padding-top: 0;
+  }
+
+  @include mq($bp--desktop-xl) {
+    min-width: $four-col;
+    max-width: $four-col;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  .article-qa__answer-list--2 &:first-child {
+
+    @include mq($bp--desktop-xl) {
+      margin-right: $two-col;
+    }
+  }
+}
+
+.article-qa__answer-photo {
+  margin-right: 25%;
+  margin-bottom: 15px;
+
+  @include mq($bp--tablet-xl) {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+
+.article-qa__answer-person {
+
+  @include mq($bp--tablet-xl) {
+    text-align: center;
+  }
+}
+
+.article-qa__answer-name {
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 15px 100px,
+    $max-sizes: 20px 2000px);
+  color: $color-black;
+  font-family: $font-family-sans;
+  font-weight: $font-weight--bold;
+  line-height: 1.25;
+  margin-bottom: 0;
+}
+
+.article-qa__answer-person-title {
+  font-family: $font-family-sans;
+}
+
+.article-qa__answer-response {
+  margin-bottom: 0;
+
+  @include mq($bp--tablet-xl) {
+    margin-left: $one-col;
+    margin-right: $one-col;
+    margin-bottom: 60px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  p {
+    @include fluid-size(
+      $property: font-size,
+      $min-sizes: 18px 100px,
+      $max-sizes: 23px 2000px);
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}

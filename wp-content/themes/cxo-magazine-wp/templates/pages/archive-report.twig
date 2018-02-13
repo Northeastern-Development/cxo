@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div class="archive-wrapper archive-wrapper--reports">
+
+  <h1 class="archive-reports__title">CXO {{ title }}</h1>
+
+  {% if posts %}
+  <section class="archive-reports__posts">
+  {% for post in posts %}
+    {% include ['partials/teases/tease-'~post.post_type~'.twig', 'partials/teases/tease.twig'] with {context_class: 'tease-report'} %}
+  {% endfor %}
+  </section>
+  {% endif %}
+
+</div>
+{% endblock %}

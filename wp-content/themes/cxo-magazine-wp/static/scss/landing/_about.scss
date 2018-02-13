@@ -1,0 +1,567 @@
+// Subscribe
+// -------
+// In page subscribe layer with form
+//
+// SEE ALSO: base-revision.scss
+//           email-form.scss
+//
+// TOC:
+// 1. Layout
+// 2. Subscribe
+// 3. Topics
+// 4. Manifesto
+
+
+// 1. Layout
+// -------
+
+.landing-about {
+  padding-bottom: 30px;
+  position: relative;
+
+  @include mq($bp--tablet-xl) {
+    padding-bottom: 90px;
+  }
+}
+
+.landing-about-inner {
+  @include grid-parent;
+  position: relative;
+
+  &::before {
+    @include pseudo(0 0 n 0);
+    background-image: linear-gradient(200deg, rgba($color-navy, 1) 0%, rgba($color-navy, 0) 70%);
+    height: 50vw;
+    z-index: -1;
+  }
+}
+
+.landing-about__section-heading {
+  color: $color-white;
+  font-family: $font-family-sans;
+  font-size: 14px;
+  font-weight: $font-weight--bold;
+  letter-spacing: .05em;
+  line-height: 1;
+  margin-bottom: 0;
+  padding-bottom: 55px;
+  position: relative;
+  text-transform: uppercase;
+  text-align: center;
+
+  &:before {
+    @include pseudo(n n 0 50%);
+    background-color: $color-plum;
+    margin-left: -1px;
+    width: 2px;
+    height: 45px;
+  }
+}
+
+
+// 2. Subscribe
+// -------
+
+.landing-about__subscribe {
+  margin-bottom: 45px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: relative;
+
+  @include mq($bp--tablet-xl) {
+    background-image: none;
+    display: flex;
+    padding-top: 150px;
+    padding-bottom: 60px;
+  }
+
+  @include mq($bp--desktop) {
+    padding-top: 190px;
+    padding-bottom: 90px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    padding-top: 220px;
+    padding-bottom: 120px;
+  }
+
+  &:before {
+    @include pseudo(0 #{-$grid-padding-mobile});
+    background-image: linear-gradient(-45deg, #4096F3 0%, #1C0CAE 100%);
+    z-index: -1;
+
+    @include mq($bp--tablet-xl) {
+      background-image: none;
+    }
+  }
+
+  &::after {
+
+    @include mq($bp--tablet-xl) {
+      @include pseudo(0 #{-$grid-padding} n #{-$grid-padding});
+      background: transparent url('../../img/bg-slash--white.png') no-repeat 50% 0;
+      background-size: 100% 100px;
+      height: 100px;
+    }
+  }
+}
+
+.landing-about__subscribe-copy {
+  @include grid-child;
+  padding-bottom: 30px;
+  padding-left: 75px;
+  position: relative;
+
+  @include mq($bp--tablet-xl) {
+    margin-left: $one-col;
+    width: $four-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    padding-bottom: 45px;
+  }
+}
+
+.landing-about__subscribe-headline {
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 18px 100px,
+    $max-sizes: 32px 1500px);
+  color: $color-white;
+  font-family: $font-family-sans;
+  margin-bottom: 10px;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 15px;
+    padding-left: 75px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    padding-left: 120px;
+  }
+}
+
+.landing-about__subscribe-description {
+  color: $color-white;
+  font-size: 16px;
+
+  @include mq($bp--tablet-xl) {
+    padding-left: 75px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    padding-left: 120px;
+  }
+}
+
+.svg__cxo-icon  {
+
+  .landing-about__subscribe-copy & {
+    @include absolute(0 n n 0);
+    @include size(60px);
+
+    @include mq($bp--tablet-xl) {
+      left: $grid-padding;
+    }
+
+    @include mq($bp--desktop-xl) {
+      @include size(90px);
+    }
+  }
+}
+
+.landing-about__subscribe-form {
+  @include grid-child;
+  position: relative;
+  z-index: 2;
+
+  @include mq($bp--tablet-xl) {
+    margin-left: $one-col;
+    width: $four-col;
+  }
+}
+
+.newsletter-form {
+
+  .landing-about__subscribe-form {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.subscribe__form-input {
+
+  .landing-about__subscribe-form & {
+
+    @include mq($bp--tablet-xl) {
+      border-color: $color-plum;
+    }
+  }
+}
+
+
+// 3. Topics
+// -------
+
+.landing-about__topics {
+  @include vertical-spacing;
+}
+
+.landing-about__section-heading {
+
+  .landing-about__topics &:after {
+    @include pseudo(n 0 0 0);
+    background-color: $color-plum;
+    height: 2px;
+
+    @include mq($bp--tablet-xl) {
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+      width: 50%;
+    }
+  }
+}
+
+.landing-about__topics-list {
+  margin-top: 25px;
+
+  @include mq($bp--tablet-xl) {
+    margin-top: 15px;
+  }
+}
+
+.landing-topics-list {
+  display: none;
+
+  @include mq($bp--tablet-xl) {
+    @include ul-null;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    width: auto;
+    margin-left: $one-col;
+    margin-right: $one-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-left: $two-col;
+    margin-right: $two-col;
+  }
+}
+
+.landing-topics-list--mobile {
+  position: relative;
+  width: 100%;
+
+  @include mq($bp--tablet) {
+    display: block;
+    margin: 0 auto 10px;
+    width: 50%;
+  }
+
+  @include mq($bp--tablet-xl) {
+    display: none;
+  }
+
+  &:before {
+    @include pseudo(15px 15px n n);
+    @include triangle(15px 9px, $color-white, down);
+  }
+}
+
+.landing-topics-list--select {
+  @include reset-input;
+  background-color: $color-plum;
+  color: $color-white;
+  font-size: 14px;
+  font-weight: $font-weight--bold;
+  line-height: 16px;
+  margin-bottom: 10px;
+  padding: 10px 60px 10px 12px;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+
+.landing-topics-list-item {
+  margin: 0 4px 8px;
+  width: auto;
+
+  @include mq($bp--tablet-xl) {
+    margin: 0 6px 12px;
+  }
+}
+
+.landing-topics-list-item--button {
+  @include transition;
+  background-color: transparent;
+  border:  none;
+  color: $color-gray-7;
+  cursor: pointer;
+  display: block;
+  font-size: 12px;
+  font-weight: $font-weight--bold;
+  outline: 0;
+  padding: 7px 11px;
+  white-space: nowrap;
+
+  @include mq($bp--tablet-xl) {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-sky;
+    color: $color-white;
+  }
+}
+
+.js-topic-list-button--active {
+  align-self: center;
+  background-color: $color-plum;
+  color: $color-white;
+
+  &:hover,
+  &:focus {
+    background-color: $color-plum;
+  }
+}
+
+.landing-about__topics-questions {
+  margin-top: 10px;
+}
+
+.landing-topics-question__heading {
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 20px 100px,
+    $max-sizes: 60px 1500px);
+  color: $color-white;
+  font-weight: $font-weight--bold;
+  line-height: 1.25;
+  margin-bottom: 0;
+  text-align: center;
+
+  @include mq($bp--tablet-xl) {
+    margin-left: $one-col;
+    margin-right: $one-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-left: $two-col;
+    margin-right: $two-col;
+  }
+}
+
+.landing-topics-question__vote {
+  margin-top: 30px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.landing-topics-question__vote--button {
+  @include transition;
+  font-family: $font-family-base;
+  font-size: 14px;
+  border: 1px solid $color-gray-b;
+  background-color: $color-black;
+  color: $color-white;
+  display: inline-block;
+  line-height: 1;
+  padding: 12px 20px;
+  position: relative;
+
+  &:hover,
+  &:focus {
+    border-color: $color-mint;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .check-svg {
+    @include absolute(12px n n 20px);
+  }
+
+  .check-svg--fill,
+  .check-svg--outline {
+    @include transition;
+  }
+}
+
+.landing-topics-question__vote--button-text {
+  display: inline-block;
+  line-height: 20px;
+  padding-left: 40px;
+}
+
+.js-topic-vote-button--active {
+
+  &.landing-topics-question__vote--button,
+  &.landing-topics-question__vote--button:hover,
+  &.landing-topics-question__vote--button:focus {
+    border-color: $color-white;
+    cursor: pointer;
+  }
+
+  .check-svg--fill {
+    fill: $color-mint;
+  }
+}
+
+
+// 4. Manifesto
+// -------
+
+.landing-manifesto {
+  padding-top: 30px;
+  margin-bottom: 30px;
+  position: relative;
+
+  @include mq($bp--tablet-xl) {
+    margin-left: $one-col;
+    margin-right: $one-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-left: $two-col;
+    margin-right: $two-col;
+  }
+
+  &:before {
+
+    @include mq($bp--tablet-xl) {
+      @include pseudo(0 n 0 50%);
+      background-color: $color-plum;
+      margin-left: -1px;
+      width: 2px;
+    }
+  }
+}
+
+.landing-about__section-heading {
+
+  .landing-about__manifesto &:after {
+    @include pseudo(n 0 0 0);
+    background-color: $color-plum;
+    height: 2px;
+
+    @include mq($bp--tablet-xl) {
+      display: none;
+    }
+  }
+}
+
+.landing-manifesto-short,
+.landing-manifesto-overflow {
+
+  p {
+    color: $color-white;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.landing-manifesto-short {
+
+  @include mq($bp--tablet-xl) {
+    display: flex;
+  }
+}
+
+.landing-manifesto--left,
+.landing-manifesto--right {
+  @include grid-child;
+
+  @include mq($bp--tablet-xl) {
+    min-width: 50%;
+    width: 50%;
+  }
+}
+
+.landing-manifesto--left {
+
+  p {
+    @include fluid-size(
+      $property: font-size,
+      $min-sizes: 18px 100px,
+      $max-sizes: 28px 1500px);
+    font-weight: $font-weight--light;
+    line-height: 1.35;
+  }
+}
+
+.landing-manifesto-overflow {
+  @include grid-child;
+  @include transition(max-height);
+  max-height: 0;
+  overflow: hidden;
+
+  @include mq($bp--tablet-xl) {
+    margin-left: 50%;
+  }
+
+  .show-more & {
+    max-height: 1000px;
+    overflow: visible;
+    padding-top: 20px;
+  }
+
+  & > p {
+    @include transition(opacity);
+    opacity: 0;
+  }
+
+  .show-more & > p {
+    opacity: 1;
+    transition-delay: 500ms;
+  }
+}
+
+.landing-manifesto__more {
+  background-color: $color-black;
+  margin-bottom: 0;
+  padding-top: 30px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.landing-manifesto__more-link {
+  @include transition;
+  background-color: $color-yellow;
+  border: 3px solid $color-yellow;
+  color: $color-black;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: $font-weight--bold;
+  letter-spacing: .05em;
+  line-height: 1;
+  margin: 15px auto 0;
+  padding: 7px 12px;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    background-color: $color-black;
+    border-color: $color-yellow;
+    color: $color-yellow;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .show-more & span {
+    display: inline-block;
+    overflow: hidden;
+    width: 0;
+  }
+
+  .show-more &:after {
+    content: 'Less';
+  }
+}

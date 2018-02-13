@@ -1,0 +1,61 @@
+<section class="menu-report">
+
+  <div class="menu-report-inner">
+
+    <div class="menu-report__site-wrapper">
+      <div class="menu-report__site-wrapper-inner">
+
+        <nav class="menu-report__site-nav">
+          <ul class="menu-report__site-nav-list">
+            {% for menu_item in options.home_menu %}
+              <li class="menu-report__site-nav-list-item">
+                <a href="{{ menu_item.page_link }}" class="menu-report__site-nav-list-item--link">{{ menu_item.label }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+
+        <p class="menu-report__subscribe">
+          <button type="button" class="menu-report__subscribe--button js-toggle-class" tabindex="-1" aria-hidden="true" aria-label="Subscribe to CXO's newsletter" data-t-elem-pos="parent" data-t-selector="body" data-t-class="js-subscribe-active">Subscribe</button>
+        </p>
+
+      </div>
+    </div>
+
+    <div class="menu-report__toc">
+
+      <div class="menu-report__about">
+
+        <p class="menu-report__number">{{ post.report.overline }}</p>
+        <h1 class="menu-report__topic">{{ post.report.post_title }}</h1>
+        <div class="menu-report__description">
+          {{ post.report.content }}
+        </div>
+
+      </div>
+
+      <div class="menu-report__posts">
+
+        <h2 class="menu-report__posts-heading">In this report</h2>
+
+        <ul class="menu-report__post-list">
+          {% for report_post_obj in post.report_posts %}
+          {% set report_post = report_post_obj.post %}
+          <li class="menu-report__post-item {% if report_post.id == post.id %}menu-report__post-item--active{% endif %}" data-post-id="{{ report_post.id }}">
+            <a href="{{ post.report.link }}{{ report_post.slug }}" class="menu-report__post-item--link">
+              <span class="menu-report__post-item--title">{{ report_post.post_title }}</span>
+              {% if report_post.sub_heading %}
+              <span class="menu-report__post-item--subheading">{{ report_post.sub_heading }}</span>
+              {% endif %}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

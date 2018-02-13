@@ -1,0 +1,452 @@
+// report
+// -------
+// Base styles for report page template
+//
+// SEE ALSO: tease.scss
+//
+// TOC:
+// 1. Basic Layout
+// 2. Header
+// 3. Teases
+// 4. Tease Layouts
+
+
+// 1. Basic Layout
+// -------
+
+.report-wrapper {
+  position: relative;
+}
+
+.report__header,
+.report__articles {
+  @include grid-parent;
+}
+
+// 2. Header
+// -------
+
+.report__header {
+  @include vertical-component;
+  background-color: $color-black;
+  border-bottom: 5px solid rgba($color-white, .75);
+  padding-bottom: 90px;
+  position: relative;
+
+  @include mq($bp--desktop-xl) {
+    border-width: 10px;
+    padding-bottom: 150px;
+  }
+
+  @include mq($bp--desktop-xxl) {
+    padding-bottom: 210px;
+  }
+
+  &:before {
+    @include pseudo(n 0 0 0);
+    background-color: rgba($color-white, .5);
+    height: 5px;
+
+    @include mq($bp--desktop-xl) {
+      height: 10px;
+    }
+  }
+
+  &:after {
+    @include pseudo(n 0 5px 0);
+    background-color: rgba($color-white, .25);
+    height: 5px;
+
+    @include mq($bp--desktop-xl) {
+      bottom: 10px;
+      height: 10px;
+    }
+  }
+}
+
+.report__header-inner {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  position: relative;
+
+  @include mq($bp--tablet-xl) {
+    align-items: flex-end;
+    flex-direction: row;
+  }
+}
+
+.report__header-titles {
+  @include grid-child;
+
+  @include mq($bp--tablet-xl) {
+    width: $eight-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-left: $one-col;
+    margin-right: $one-col;
+    width: $six-col;
+  }
+}
+
+.report-overline {
+  color: $color-gray-b;
+  display: block;
+  font-size: $font-size-xxs;
+  font-weight: $font-weight--bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 20px;
+  }
+}
+
+.report__header-headline {
+  @include font-con(90px, 240px);
+  color: $color-white;
+  line-height: .85;
+  margin-left: -.02em;
+  margin-bottom: 10px;
+}
+
+.report__header-description {
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 20px 100px,
+    $max-sizes: 26px 2000px);
+  @include grid-child;
+  color: $color-white;
+  font-weight: $font-weight--light;
+  line-height: 1.3;
+
+  @include mq($bp--tablet-xl) {
+    width: $four-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-right: $one-col;
+    width: $three-col;
+  }
+}
+
+
+.report-start {
+  @include grid-child;
+  margin-left: $two-col;
+  margin-right: $two-col;
+  margin-bottom: 0;
+  width: $eight-col;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 260px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-bottom: 30px;
+  }
+}
+
+.report-start--link {
+  @include transition;
+  align-items: flex-end;
+  background-color: $color-yellow;
+  color: $color-black;
+  display: flex;
+  margin: 0 auto;
+  min-height: 90px;
+  overflow: hidden;
+  padding: 25px;
+  position: relative;
+  width: 100%;
+
+  .svg__arrow-down {
+    @include absolute(-10px #{$grid-padding-mobile} n n);
+    @include transition(top);
+
+    @include mq($bp--tablet-xl) {
+      right: 25px;
+    }
+
+    > * {
+      fill: $color-black;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-white;
+
+    .svg__arrow-down {
+      top: 0;
+    }
+  }
+}
+
+.report-start__text {
+  line-height: 1.2;
+  padding-right: 60%;
+}
+
+
+// 3. Teases
+// -------
+
+.report__articles {
+  counter-reset: post-list;
+  margin-top: -60px;
+
+  @include mq($bp--desktop-xl) {
+    margin-top: -120px;
+  }
+
+  @include mq($bp--desktop-xxl) {
+    margin-top: -180px;
+  }
+}
+
+.report__article-row {
+
+  @include mq($bp--tablet-xl) {
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.tease-report-post {
+  background-image: none;
+  counter-increment: post-list;
+  margin-bottom: 45px;
+  padding-top: 0;
+
+  @include mq($bp--desktop-xl) {
+    margin-bottom: 75px;
+    padding-top: 0;
+  }
+}
+
+.tease__header-titles {
+
+  .tease-report-post & {
+
+    @include mq($bp--tablet-xl) {
+      padding-left: 25%;
+    }
+  }
+}
+
+
+.tease__title {
+
+  .tease-report-post & {
+    @include transition(box-shadow, 600ms);
+    @include fluid-size(
+      $property: font-size,
+      $min-sizes: 20px 100px,
+      $max-sizes: 30px 2000px);
+    box-shadow: inset 0 -1px rgba($color-white, 0);
+    display: inline;
+    margin-bottom: 0;
+  }
+
+  .tease-report-post .base-tease-inner--link:hover &,
+  .tease-report-post .base-tease-inner--link:focus & {
+    box-shadow: inset 0 -.25em $color-yellow;
+  }
+}
+
+.tease__content {
+
+  .tease-report-post & {
+    min-height: 50px;
+    padding-left: 40px;
+    position: relative;
+
+    @include mq($bp--tablet-xl) {
+      display: block;
+      padding-left: 0;
+    }
+  }
+
+  .tease-report-post &:before {
+    @include absolute(.1em n n 0);
+    @include font-con(40px, 40px);
+    color: $color-gray-a;
+    content:"0" counter(post-list);
+
+    @include mq($bp--tablet-xl) {
+      font-size: 60px;
+      left: $grid-padding;
+      text-align: center;
+      width: 17%;
+    }
+  }
+}
+
+.tease__excerpt {
+
+  .tease-report-post & {
+    @include fluid-size(
+      $property: font-size,
+      $min-sizes: 13px 100px,
+      $max-sizes: 16px 2000px);
+    line-height: 1.4;
+    padding-top: 10px;
+
+    @include mq($bp--tablet-xl) {
+      padding-left: 25%;
+    }
+
+    @include mq($bp--desktop-xl) {
+      padding-top: 15px;
+    }
+  }
+}
+
+.tease__figure {
+
+  .tease-report-post & {
+    overflow: hidden;
+  }
+}
+
+.tease__img {
+
+  .tease-report-post & {
+    @include transition(transform, 600ms);
+  }
+
+  .tease-report-post .base-tease-inner--link:hover &,
+  .tease-report-post .base-tease-inner--link:focus & {
+    transform: scale(1.05);
+  }
+}
+
+
+// 4. Tease Layouts
+// -------
+
+// Large Square
+
+.tease-large-square {
+
+  @include mq($bp--tablet-xl) {
+    position: relative;
+    width: $eight-col;
+  }
+
+  .tease__header {
+
+    @include mq($bp--desktop-xl) {
+      margin-bottom: 0;
+    }
+  }
+
+  // Image
+  .tease__image {
+    margin-bottom: 0;
+
+    @include mq($bp--desktop-xl) {
+      margin-left: 25%;
+      width: $nine-col;
+    }
+  }
+
+  .tease__content {
+
+    @include mq($bp--desktop-xl) {
+      @include absolute(n n 0 0);
+      background-color: $color-white;
+      padding-top: 20px;
+      width: 50%;
+      z-index: $zIndex-3;
+    }
+  }
+
+  & .tease__content:before {
+
+    @include mq($bp--tablet-xl) {
+      width: 12%;
+    }
+
+    @include mq($bp--desktop-xl) {
+      top: 25px;
+      width: 17%;
+    }
+  }
+
+  .tease__header-titles,
+  .tease__excerpt {
+
+    @include mq($bp--tablet-xl) {
+      padding-left: 15%;
+    }
+
+    @include mq($bp--desktop-xl) {
+      padding-left: 25%;
+    }
+  }
+}
+
+.tease-report-post:nth-child(2).tease-large-square {
+
+  // Image
+  .tease__image {
+
+    @include mq($bp--desktop-xl) {
+      margin-left: 0;
+      margin-right: 25%;
+    }
+  }
+
+  .tease__content {
+
+    @include mq($bp--desktop-xl) {
+      @include absolute(n 0 0 a);
+    }
+  }
+}
+
+// Small Square
+
+.tease-small-square {
+
+  @include mq($bp--tablet-xl) {
+    width: $four-col;
+  }
+
+  // Image
+  .tease__image {
+    margin-bottom: 0;
+  }
+}
+
+// Wide Rectangle
+
+.tease-wide-rectangle {
+
+  @include mq($bp--tablet-xl) {
+    width: $six-col;
+  }
+
+  & .tease__content:before {
+
+    @include mq($bp--tablet-xl) {
+      width: 12%;
+    }
+  }
+
+  .tease__header-titles,
+  .tease__excerpt {
+
+    @include mq($bp--tablet-xl) {
+      padding-left: 15%;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<section class="article-component article-section-break">
+
+  {% include 'partials/svg/circle-divider-open.svg' with {context_class: 'circle-divider--top'} %}
+
+  <div class="article-section-break__part">
+
+    <p class="article-section-break__part-number">{{ content.part_number }}</p>
+
+  </div>
+
+  <div class="article-section-break__title">
+
+    <h3 class="article-section-break__heading">{{ content.headline }}</h3>
+
+  </div>
+
+  {% include 'partials/svg/circle-divider-open.svg' with {context_class: 'circle-divider--bottom'} %}
+
+</section>

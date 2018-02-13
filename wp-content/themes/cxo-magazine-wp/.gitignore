@@ -1,0 +1,8 @@
+.DS_Store
+/vendor/
+node_modules
+static/build
+*.sublime-project
+*.sublime-workspace
+plugins
+.env

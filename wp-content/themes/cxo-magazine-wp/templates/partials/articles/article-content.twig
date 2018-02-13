@@ -1,0 +1,35 @@
+{% include 'partials/articles/article-title.twig' %}
+
+<div class="article-wrapper {% if not post.is_last %}js-infinite-scroll{% else %}js-is-last{% endif %}" data-post-id="{{ post.id }}" data-link="{{ post.link }}">
+  {% for content in post.get_field('content') %}
+    {% if content.acf_fc_layout == 'text' %}
+      {% include 'partials/articles/article-text.twig' with { 'content' : content } %}
+    {% elseif content.acf_fc_layout == 'text_image' %}
+      {% include 'partials/articles/article-text-image.twig' with { 'content' : content } %}
+    {% elseif content.acf_fc_layout == 'section_break' %}
+      {% include 'partials/articles/article-section-break.twig' with { 'content' : content } %}
+    {% elseif content.acf_fc_layout == 'image_block' %}
+      {% include 'partials/articles/article-image.twig' with { 'content' : content } %}
+    {% elseif content.acf_fc_layout == 'pull_quote' %}
+      {% include 'partials/articles/article-pull-quote.twig' with { 'content' : content } %}
+    {% elseif content.acf_fc_layout == 'list_block' %}
+      {% include 'partials/articles/article-list.twig' with { 'content' : content } %}
+    {% elseif content.acf_fc_layout == 'video_block' %}
+      {% include 'partials/articles/article-video.twig' with { 'content' : content } %}
+    {% elseif content.acf_fc_layout == 'qa_block' %}
+      {% include 'partials/articles/article-qa.twig' with { 'content' : content } %}
+    {% endif %}
+  {% endfor %}
+
+  {% if not post.is_last %}
+  <div class="article-end">
+    <span class="article-end__text">Read Part {{post.report_num + 1}}</span>
+    {% include 'partials/svg/circle-divider-end.svg' %}
+  </div>
+  {% endif %}
+
+  {% if post.is_last %}
+    {% include 'partials/articles/article-next.twig' with { 'next_article' : post.next_article } %}
+  {% endif %}
+
+</div>

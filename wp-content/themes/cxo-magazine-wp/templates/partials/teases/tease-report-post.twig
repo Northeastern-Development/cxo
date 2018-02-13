@@ -1,0 +1,33 @@
+{% extends "partials/teases/tease.twig" %}
+
+{% block body %}
+<a href="{{ page.link }}{{ post.slug }}" class="base-tease-inner--link">
+
+  {% if post_image %}
+  <div class="tease__header">
+    <div class="tease__image">
+        <figure class="tease__figure">
+          {% if topical_post.post_layout == "wide-rectangle" %}
+          <img src="{{post_image|resize(900,450,"center")}}" alt="{{ post_image.alt }}" class="tease__img" />
+          {% else %}
+          <img src="{{post_image|resize(900,900,"center")}}" alt="{{ post_image.alt }}" class="tease__img" />
+          {% endif %}
+        </figure>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="tease__content">
+
+    <div class="tease__header-titles">
+      <h1 class="tease__title">{{ post.title }}</h1>
+    </div>
+
+    <div class="tease__excerpt">
+        {{post.sub_heading}}
+    </div>
+
+  </div>
+
+</a>
+{% endblock %}

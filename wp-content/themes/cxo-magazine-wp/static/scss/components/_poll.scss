@@ -1,0 +1,180 @@
+// Poll
+// -------
+// Base styles for Poll component
+//
+// TOC:
+// 1. Basic Layout
+// 2. Answers
+
+
+// 1. Basic Layout
+// -------
+
+.article__content {
+
+  .wp-polls {
+    background-color: $color-black;
+    font-family: $font-family-sans;
+    margin-bottom: 25px;
+    padding: $grid-padding-mobile;
+
+    @include mq($bp--tablet-xl) {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-top: 90px;
+      margin-bottom: 90px;
+    }
+
+    p {
+      color: $color-white;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      @include transition;
+      box-shadow: inset 0 -1px $color-gray-b;
+      color: $color-gray-b;
+      font-size: $font-size-xxs;
+
+      &:hover,
+      &:focus {
+        box-shadow: inset 0 -.25em $color-sky;
+        color: $color-white;
+      }
+    }
+
+    input[type="button"] {
+      @include reset-input;
+      border: 1px solid $color-white;
+      border-radius: 3px;
+      color: $color-white;
+      cursor: pointer;
+      font-size: $font-size-xxxs;
+      font-weight: $font-weight--bold;
+      letter-spacing: .1em;
+      line-height: 1;
+      margin-top: 15px;
+      padding: 10px 20px 12px;
+      text-transform: uppercase;
+      transition: box-shadow 300ms $timing-butter, color 300ms $timing-butter 150ms;
+
+      @include mq($bp--desktop-xl) {
+        margin-top: 0;
+      }
+
+      &:hover,
+      &:focus {
+        box-shadow: inset 0 0 0 20px $color-white;
+        color: $color-black;
+      }
+    }
+  }
+
+  .wp-polls-ul {
+    margin: 0 0 25px 0;
+
+    @include mq($bp--desktop-xl) {
+      margin-bottom: 45px;
+    }
+
+    li {
+      color: $color-white;
+    }
+
+    small {
+      color: $color-gray-9;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      @include reset-input;
+      position: absolute;
+      visibility: hidden;
+    }
+
+    label {
+      @include fluid-size(
+        $property: font-size,
+        $min-sizes: 14px 100px,
+        $max-sizes: 22px 2000px);
+      @include transition;
+      border-bottom: 1px solid $color-gray-4;
+      color: $color-gray-9;
+      cursor: pointer;
+      display: block;
+      position: relative;
+      padding: 10px 0;
+
+      &:hover,
+      &:focus {
+        color: $color-mint;
+      }
+
+      &:before {
+        @include pseudo(54% n n 0);
+        @include size(7px);
+        background-color: $color-mint;
+        border-radius: 10px;
+        transform: scale(0);
+        transform-origin: 50% 50%;
+        transition: transform 300ms $timing-butter, width 300ms $timing-butter;
+      }
+    }
+
+    li:first-child label {
+      border-top: 1px solid $color-gray-4;
+    }
+
+    input[type="radio"]:active ~ label,
+    input[type="radio"]:checked ~ label,
+    input[type="checkbox"]:active ~ label,
+    input[type="checkbox"]:checked ~ label {
+      color: $color-white;
+      padding-left: 17px;
+
+      &:before {
+        transform: translateY(-50%) scale(1);
+      }
+    }
+  }
+
+  // Loading
+
+  .wp-polls-image {
+    width: 16px;
+  }
+}
+
+
+// 2. Answers
+// -------
+
+$colors-list--cool:  #F6EFFF  #ECDEFF  #D3B3FF  #C29BF7  #AA74F3  #935ADF  #7D40CE  #4F169C  #3B0780;
+
+// Default colors
+@for $i from 1 through length($colors-list--cool) {
+  $color: nth($colors-list--cool, $i);
+    li:nth-child(#{$i - 1}) .pollbar {
+      background: $color;
+    }
+}
+
+.article__content {
+
+  .wp-polls .pollbar {
+    border: none;
+    height: 15px;
+    margin-bottom: 15px;
+  }
+
+  .wp-polls li:nth-child(1) small {
+    display: inline-block;
+    padding-top: 25px;
+  }
+}

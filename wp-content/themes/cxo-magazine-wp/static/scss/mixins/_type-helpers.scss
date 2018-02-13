@@ -1,0 +1,21 @@
+// Type Helpers
+// -------
+
+@mixin font-con($size-min: 90px, $size-max: 240px, $weight: $font-weight--light) {
+  @if $size-min == $size-max {
+    font-size: $size-min;
+  } @else {
+    @include fluid-size(
+      $property: font-size,
+      $min-sizes: $size-min 100px,
+      $max-sizes: $size-max 2000px);
+  }
+  font-family: $font-family-compressed;
+  @if $weight == 'bold' {
+  font-weight: $font-weight--bold;
+  } @else {
+  font-weight: $weight;
+  }
+  line-height: .9;
+  text-transform: uppercase;
+}

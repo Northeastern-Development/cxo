@@ -1,0 +1,242 @@
+// Next
+// -------
+// Base styles for Next component
+//
+// TOC:
+// 1. Basic Layout
+
+
+// 1. Basic Layout
+// -------
+
+.article-next {
+
+  @include mq($bp--tablet-xl) {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.article-next__label {
+  @include grid-child;
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 15px 100px,
+    $max-sizes: 25px 2000px);
+  font-family: $font-family-serif;
+
+  @include mq($bp--tablet-xl) {
+    text-align: center;
+    width: $four-col;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+}
+
+.article-next__article--link {
+  @include transition(transform);
+  display: block;
+
+  @include mq($bp--tablet-xl) {
+    width: $ten-col;
+  }
+
+  @include mq($bp--desktop-xxl) {
+    width: $eight-col;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.025);
+  }
+}
+
+.article-next__article {
+  @include grid-child;
+  background-image: linear-gradient(to bottom left, $color-gray-4, $color-gray-0 100%);
+  position: relative;
+}
+
+.article-next__article-inner {
+
+  @include mq($bp--tablet-xl) {
+    align-items: center;
+    display: flex;
+    min-height: 75vh;
+  }
+
+  @include mq-height($bp--desktop, $bp--tablet-xl) {
+    min-height: 50vh;
+  }
+}
+
+// Titles
+// -------
+
+.article-next__content {
+  @include grid-child;
+  padding: 20px $grid-padding-mobile;
+  position: relative;
+  z-index: $zIndex-3;
+
+  @include mq($bp--tablet-xl) {
+    margin-left: $three-col;
+    margin-right: $three-col;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: $six-col;
+  }
+}
+
+.article-next__number {
+  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  position: relative;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 50px;
+  }
+
+  &:before {
+    @include absolute(n n 0 50%);
+    @include pseudo;
+    @include size(72px, 1px);
+    background-color: rgba($color-white, .5);
+    transform: translateX(-50%);
+
+    @include mq($bp--tablet-xl) {
+      @include size(90px, 1px);
+    }
+  }
+}
+
+.article-next__number--part {
+  color: $color-gray-b;
+  font-family: $font-family-sans;
+  font-size: $font-size-xxxs;
+  font-weight: $font-weight--bold;
+  letter-spacing: .15em;
+  line-height: 1.3;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+
+  @include mq($bp--tablet-xl) {
+    font-size: 11px;
+    letter-spacing: 0;
+    width: 7px;
+    word-wrap: break-word;
+  }
+}
+
+.article-next__number--number {
+  @include font-con(40px, 40px);
+  color: $color-white;
+  padding-left: 5px;
+  padding-bottom: 10px;
+
+  @include mq($bp--tablet-xl) {
+    font-size: 80px;
+    line-height: .8;
+    padding-left: 10px;
+  }
+}
+
+.article-next__heading {
+  @include font-con(40px, 120px);
+  color: $color-white;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+
+// Images
+// -------
+
+.article-next__art {
+  @include grid-child;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+// Vertical
+
+.article-next--img-horizontal,
+.article-next--img-vertical {
+
+  .article-next__art {
+
+    @include mq($bp--tablet-xl) {
+      @include absolute(#{$grid-padding} n #{$grid-padding} #{$grid-padding});
+      width: calc(#{$six-col} - #{$grid-padding});
+    }
+  }
+
+  .article-next__figure {
+
+    @include mq($bp--tablet-xl) {
+      margin-left: #{-$grid-padding};
+      margin-right: #{-$grid-padding};
+      min-height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+  }
+
+  .article-next__img {
+
+    @include mq($bp--tablet-xl) {
+      @include absolute(0 n 0 50%);
+      height: 75vh;
+      max-width: none;
+      transform: translateX(-50%);
+      width: auto;
+    }
+
+    @include mq-height($bp--desktop, $bp--tablet-xl) {
+      height: 50vh;
+    }
+  }
+
+  .article-next__content {
+
+    @include mq($bp--tablet-xl) {
+      margin-left: $six-col;
+      margin-right: 0;
+    }
+  }
+}
+
+
+// Full
+
+.article-next--img-full-screen {
+
+  .article-next__article {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &:before {
+      @include pseudo;
+      @include absolute(0);
+      background-color: rgba(0,0,0,0.5);
+      z-index: $zIndex-1;
+    }
+  }
+
+  .article-next__art {
+    display: none;
+  }
+
+  .article-next__number {
+    color: $color-white;
+  }
+
+  .article-number--total {
+    opacity: 0.75;
+  }
+}

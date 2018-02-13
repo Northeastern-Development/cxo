@@ -1,0 +1,14 @@
+<section class="article-component article-text-image">
+
+  <div class="article-text-image__art">
+
+    <figure class="article-text-image__figure">
+      {% set image = TimberImage(content.image) %}
+      <img src="{{ image.src }}" alt="{{ image.alt }}" class="article-text-image__img">
+    </figure>
+
+  </div>
+
+  <div class="article__content article-text-image__content">{{ content.text }}</div>
+
+</section>

@@ -1,0 +1,24 @@
+<section class="landing-articles">
+
+  <div class="landing-articles-inner">
+
+    <h3 class="landing-articles__headline">Ideas that shape work</h3>
+
+    <div class="landing-articles__row">
+      {% for sub_feature in page.get_field('sub_features').posts %}
+      {% set post = sub_feature.post %}
+        {% include ['partials/teases/tease-home.twig'] with {context_class: 'tease-home'} %}
+      {% endfor %}
+    </div>
+
+    <div class="landing-articles__column">
+      {% include ['partials/teases/tease-home.twig'] with {'post' : TimberPost(page.get_field('sub_features').tall_post), context_class: 'tease-home'} %}
+    </div>
+
+    <p class="landing-sub-features__view-all">
+      <a href="/updates" class="landing-sub-features__view-all--link">Read more Stories</a>
+    </p>
+
+  </div>
+
+</section>

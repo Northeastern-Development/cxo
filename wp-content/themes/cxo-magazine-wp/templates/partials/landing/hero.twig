@@ -1,0 +1,16 @@
+{% set title_image = TimberImage(post.title_image) %}
+{% set post_image = post.thumbnail ? post.thumbnail : title_image %}
+<section class="landing-hero" {% if post_image %} style="background-image: url({{ post_image.src }});" {% endif %}>
+  <div class="landing-hero__post-header">
+    <p class="landing-hero__post-overline">In this Report</p>
+    <div class="landing-hero__post-listing">
+      <article class="landing-hero__post-tease">
+        <h1 class="landing-hero__post-title">
+          <a href="{{ post.link }}" class="landing-hero__post-title--link">{{ post.title }}</a>
+        </h1>
+        <p class="landing-hero__post--description">{{ post.sub_heading }}</p>
+      </article>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,59 @@
+{% set post_image = post.thumbnail ? post.thumbnail : title_image %}
+<article class="base-tease tease-{{post.post_type}} {{context_class ? context_class: ''}} {% if post_image %}base-tease--has-image{% endif %} {% if topical_post.post_layout %}tease-{{topical_post.post_layout}}{% endif %}" id="tease-{{post.ID}}">
+  <div class="base-tease-inner">
+  {% block body %}
+
+    <div class="tease__header">
+
+    {% block header %}
+
+      {% block topics %}
+        <div class="tease__topic">
+        {% for term in post.terms %}
+          <a href="{{ term.link }}" class="tease__topic--link">{{ term.name }}</a>
+        {% endfor %}
+        </div>
+      {% endblock %}
+
+      <div class="tease__header-titles">
+        <h1 class="tease__title">
+          <a href="{{ post.link }}" class="tease__title--link">{{ post.title }}</a>
+        </h1>
+        {% if post.byline_name %}
+        <p class="tease__byline">
+          <span class="tease__byline-by">By</span>
+          <span class="tease__byline-name">{{ post.byline_name }}</span>
+          {% if post.byline_title %}
+          <span class="tease__byline-title">{{ post.byline_title }}</span>
+          {% endif %}
+        </p>
+        {% endif %}
+      </div>
+
+    {% endblock %}
+
+    </div>
+
+    <div class="tease__content">
+
+    {% block content %}
+
+      {% if post_image %}
+      <div class="tease__image">
+        <figure class="tease__figure">
+          <img src="{{post_image}}" alt="{{ post_image.alt }}" class="tease__img" />
+        </figure>
+      </div>
+      {% endif %}
+
+      <div class="tease__excerpt">
+        {{post.content|excerpt(40)}}
+      </div>
+
+    {% endblock %}
+
+    </div>
+
+  {% endblock %}
+  </div>
+</article>

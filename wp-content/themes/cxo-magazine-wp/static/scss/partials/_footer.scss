@@ -1,0 +1,140 @@
+// Footer
+// -------
+// Base styles for Footer
+//
+// TOC:
+// 1. Basic Layout
+
+
+// 1. Basic Layout
+// -------
+
+.footer-inner {
+  @include grid-parent;
+  background-color: $color-black;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  position: relative;
+
+  @include mq($bp--tablet-xl) {
+    display: flex;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+.footer-bylines {
+  @include grid-child;
+
+  @include mq($bp--tablet-xl) {
+    width: $six-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-left: $one-col;
+    width: $five-col;
+  }
+}
+
+.footer-builtby__text,
+.footer-contact {
+  color: $color-gray-9;
+  margin-bottom: 15px;
+  position: relative;
+  text-align: center;
+  z-index: $zIndex-2;
+
+  @include mq($bp--tablet-xl) {
+    text-align: left;
+    margin-bottom: 5px;
+  }
+}
+
+.footer-builtby__text--link,
+.footer-contact--link {
+  @include transition;
+  box-shadow: inset 0 -1px $color-gray-b;
+  color: $color-gray-b;
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 -.25em $color-sky;
+    color: $color-white;
+  }
+}
+
+// Follow
+
+.footer-follow {
+  @include grid-child;
+
+  @include mq($bp--tablet-xl) {
+    width: $six-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-right: $one-col;
+    width: $five-col;
+  }
+}
+
+.footer-follow__list {
+  @include ul-null;
+  margin-top: 25px;
+  text-align: center;
+
+  @include mq($bp--tablet-xl) {
+    margin-top: 0;
+    text-align: right;
+  }
+}
+
+.footer-follow__list-item {
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+  vertical-align: middle;
+
+  @include mq($bp--tablet-xl) {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+}
+
+.footer-follow__list-item--link{
+  @include center;
+  @include size(30px);
+  @include transition;
+  background-color: $color-gray-6;
+  border: 3px solid $color-gray-6;
+  border-radius: 15px;
+
+  @include mq($bp--tablet-xl) {
+    @include size(36px);
+    border-radius: 18px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-black;
+    border-color: $color-gray-6;
+  }
+
+  svg {
+    height: auto;
+    width: 18px;
+
+    @include mq($bp--tablet-xl) {
+      width: 20px;
+    }
+  }
+
+  svg > * {
+    @include transition;
+  }
+
+  &:hover svg > *,
+  &:focus svg > * {
+    fill: $color-white;
+  }
+}

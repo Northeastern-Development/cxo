@@ -1,0 +1,29 @@
+// Archive
+// -------
+// Base styles for archives
+//
+// TOC:
+// 1. Basic Layout
+
+
+// 1. Basic Layout
+// -------
+
+.archive-wrapper {
+  @include vertical-component;
+  background-color: $color-gray-f0;
+  background-image: linear-gradient(to bottom, $color-gray-f5, $color-gray-f0 100%);
+}
+
+.archive__title {
+  @include font-con(30px, 90px);
+  text-align: center;
+}
+
+.archive__posts {
+  @include grid-parent;
+  @include vertical-component;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}

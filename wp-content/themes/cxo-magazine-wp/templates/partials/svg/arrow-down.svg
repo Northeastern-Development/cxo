@@ -1,0 +1,5 @@
+<svg width="15px" height="72px" viewBox="0 0 15 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg__arrow-down {{context_class ? context_class: ''}}">
+  <g id="Arrow-Down" stroke="none" stroke-width="1" fill="#FFFFFF" fill-rule="evenodd">
+    <polygon id="Arrow" points="6.08525696 4.4408921e-16 8.08525696 4.4408921e-16 8.08525696 67.7684918 13.0710678 63 14.4852814 64.4142136 7.0976471 71.5215454 6.4246722 70.8388858 -1.49213975e-13 64.4142136 1.41421356 63 6.08525696 67.6710434"></polygon>
+  </g>
+</svg>

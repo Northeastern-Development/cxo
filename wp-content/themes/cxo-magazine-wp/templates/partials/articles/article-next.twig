@@ -1,0 +1,48 @@
+{% set next_image = TimberImage(next_article.title_image) %}
+{% set orientation = next_article.image_orientation %}
+
+{% if next_image.src %}
+<section class="article-component article-next article-next--has-image article-next--img-{{ orientation }}">
+{% else %}
+<section class="article-next">
+{% endif %}
+
+  <div class="article-next__label">
+    <p>Read from the beginning</p>
+  </div>
+
+  <a href="{{ next_article.link }}" class="article-next__article--link" >
+
+  <div class="article-next__article" {% if orientation == 'full-screen' %}style="background-image: url({{next_image.src}});"{% endif %}>
+
+    <div class="article-next__article-inner">
+
+      {% if next_image.src %}
+      <div class="article-next__art">
+
+        <figure class="article-next__figure">
+          <img src="{{ next_image.src }}" alt="{{ next_image.alt }}" class="article-next__img">
+        </figure>
+
+      </div>
+      {% endif %}
+
+      <div class="article-next__content">
+
+
+        <div class="article-next__number">
+          <span class="article-next__number--part">Part</span>
+          <span class="article-next__number--number">{{ next_article.report_num }}</span>
+        </div>
+
+        <h1 class="article-next__heading">{{ next_article.title }}</h1>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  </a>
+
+</section>

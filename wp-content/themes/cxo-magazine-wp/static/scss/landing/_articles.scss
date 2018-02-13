@@ -1,0 +1,313 @@
+// Articles
+// -------
+// Featured articles on top of page
+//
+// SEE ALSO: base-revision.scss
+//
+// TOC:
+// 1. Article Layout
+// 2. Sub Features
+// 3. View All
+
+
+// 1. Article Layout
+// -------
+
+.landing-articles {
+  @include grid-parent;
+  background-color: $color-white;
+  padding-bottom: 30px;
+
+  @include mq($bp--tablet-xl) {
+    padding-bottom: 60px;
+  }
+
+  @include mq($bp--desktop) {
+    padding-bottom: 90px;
+  }
+}
+
+
+// 2. Sub Features
+// -------
+
+.landing-articles {
+  @include grid-parent;
+  background-color: $color-white;
+}
+
+.landing-articles-inner {
+  padding-top: 30px;
+
+  @include mq($bp--tablet-xl) {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-left: $one-col;
+    margin-right: $one-col;
+    padding-top: 50px;
+  }
+}
+
+.landing-articles__headline {
+  @include font-con(44px, 70px);
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+    background: transparent url("../../../templates/partials/svg/circle-divider-open.svg") no-repeat 50% 0;
+    padding-top: 30px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-bottom: 50px;
+    padding-top: 50px;
+  }
+}
+
+.landing-articles__row {
+
+  @include mq($bp--tablet-xl) {
+    display: flex;
+    flex-wrap: wrap;
+    width: $eight-col;
+  }
+}
+
+.landing-articles__column {
+
+  @include mq($bp--tablet-xl) {
+    width: $four-col;
+  }
+}
+
+.tease-home {
+  background-image: none;
+  margin-bottom: 25px;
+  padding-top: 0;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 50px;
+    width: 50%;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-bottom: 75px;
+    padding-top: 0;
+  }
+
+  .tease__header {
+
+    @include mq($bp--tablet-xl) {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .tease__content {
+
+    @include mq($bp--tablet-xl) {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .tease__header-titles {
+
+    @include mq($bp--tablet-xl) {
+      text-align: center;
+    }
+  }
+
+  .tease__title {
+    @include fluid-size(
+      $property: font-size,
+      $min-sizes: 18px 100px,
+      $max-sizes: 30px 2000px);
+    margin-bottom: 15px;
+  }
+
+  .tease__title--link {
+    @include transition;
+    color: $color-gray-0b;
+    box-shadow: inset 0 -3px transparent;
+
+    &:hover,
+    &:focus {
+      box-shadow: inset 0 -.25em $color-yellow;
+    }
+  }
+
+  .tease__excerpt {
+    @include fluid-size(
+      $property: font-size,
+      $min-sizes: 14px 100px,
+      $max-sizes: 17px 2000px);
+    color: $color-gray-8;
+    font-family: $font-family-sans;
+    line-height: 1.4;
+
+    @include mq($bp--tablet-xl) {
+      margin-left: 0;
+      margin-right: 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+
+    > p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .tease__image {
+    margin-bottom: 0;
+
+    @include mq($bp--tablet-xl) {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    @include mq($bp--desktop-xxxl) {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+
+  .tease__figure {
+    overflow: hidden;
+  }
+
+  .tease__img {
+    @include transition(transform, 500ms);
+    width: 100%;
+  }
+
+  .tease__title--link:hover .tease__img,
+  .tease__title--link:focus .tease__img {
+    transform: scale(1.05);
+  }
+}
+
+// Tall tease
+
+.tease-home {
+
+  .landing-articles__column & {
+    height: 100%;
+    margin-bottom: 0;
+    padding-bottom: 45px;
+    width: 100%;
+
+    @include mq($bp--desktop-xl) {
+      margin-bottom: 0;
+      padding-bottom: 75px;
+    }
+  }
+}
+
+.base-tease-inner {
+
+  .landing-articles__column & {
+
+    @include mq($bp--tablet-xl) {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+}
+
+.tease__header {
+
+  .landing-articles__column & {
+
+    @include mq($bp--tablet-xl) {
+      flex-grow: 2;
+      position: relative;
+    }
+  }
+}
+
+.tease__figure {
+
+  .landing-articles__column & {
+
+    @include mq($bp--tablet-xl) {
+      @include absolute(0 #{$grid-padding} 0 #{$grid-padding});
+    }
+  }
+}
+
+.tease__img {
+
+  .landing-articles__column & {
+
+    @include mq($bp--tablet-xl) {
+      @include absolute(0 n 0 50%);
+      height: 100%;
+      width: auto;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+    }
+  }
+}
+
+.landing-articles__column .tease__title--link:hover .tease__img,
+.landing-articles__column .tease__title--link:focus .tease__img {
+
+  @include mq($bp--tablet-xl) {
+    transform: scale(1.025) translateX(-50%);
+  }
+}
+
+
+// 3. View All
+// -------
+
+.landing-sub-features__view-all {
+  text-align: center;
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+    margin: 0 $grid-padding;
+    padding: 0 #{$grid-padding * 2};
+  }
+}
+
+.landing-sub-features__view-all--link {
+  @include transition;
+  box-shadow: inset 0 3px $color-yellow;
+  color: $color-black;
+  display: block;
+  font-size: 14px;
+  letter-spacing: .05em;
+  font-weight: $font-weight--bold;
+  line-height: 1;
+  padding: 15px 0;
+  text-transform: uppercase;
+
+  @include mq($bp--tablet-xl) {
+    margin: 0 auto;
+    width: $four-col;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 6px $color-yellow;
+  }
+}

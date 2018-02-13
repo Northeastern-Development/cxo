@@ -1,0 +1,9 @@
+<svg width="26px" height="20px" viewBox="0 0 26 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="check-svg">
+    <defs>
+        <polygon id="path-1" points="10 11.9933049 4 5.98828366 0 9.99163119 10 20 26 3.9866099 22 0"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <use fill="#000000" fill-rule="evenodd" xlink:href="#path-1" class="check-svg--fill"></use>
+        <path stroke="#BBBBBB" stroke-width="1" d="M4,6.69568639 L0.706811208,9.99163119 L10,19.2925973 L25.2924483,3.987351 L22.0004936,0.706416211 L9.99975345,12.7004609 L4,6.69568639 Z" class="check-svg--outline"></path>
+    </g>
+</svg>

@@ -1,0 +1,220 @@
+// Layout
+// -------
+// Base styles for CxO
+//
+// TOC:
+// 1. Base Layout
+// 2. Page Transitions
+
+
+// 1. Base Layout
+// -------
+
+.wrapper {
+  background-color: $color-white;
+  overflow: hidden;
+  padding-top: 60px;
+  position: relative;
+
+  @include mq($bp--tablet-xl) {
+    padding-top: 66px;
+  }
+}
+
+.l--content {
+  background-color: $color-white;
+  position: relative;
+  z-index: $zIndex-1;
+}
+
+// Vertial spacing for content wrappers
+.article-wrapper,
+.page-wrapper {
+  font-family: $font-family-body;
+  padding-bottom: 48px;
+
+  @include mq($bp--tablet-xl) {
+    padding-bottom: 60px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    padding-bottom: 90px;
+  }
+
+  @include mq($bp--desktop-xxl) {
+    padding-bottom: 120px;
+  }
+}
+
+// Set type scale for content areas
+.article__content,
+.post__content,
+.page__content {
+  @include clearfix;
+  @include type-scale;
+  max-width: 100%;
+
+  // Basic images
+
+  .alignleft {
+    display: block;
+    margin: 8px auto 15px;
+    max-width: 100%;
+    width: auto;
+
+    @include mq($bp--tablet-xl) {
+      margin-left: 0;
+      margin-right: 15px;
+      float: left;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-bottom: 25px;
+      margin-right: 25px;
+    }
+  }
+
+  .alignright {
+    display: block;
+    margin: 8px auto 15px;
+    max-width: 100%;
+    width: auto;
+
+    @include mq($bp--tablet-xl) {
+      margin-left: 15px;
+      margin-right: 0;
+      float: right;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-bottom: 25px;
+      margin-left: 25px;
+    }
+  }
+
+  .aligncenter {
+    display: block;
+    margin: 15px auto;
+    max-width: 100%;
+    width: auto;
+
+    @include mq($bp--tablet-xl) {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+  }
+
+  .wp-caption {
+    max-width: 100%;
+  }
+
+  .wp-caption-text {
+    color: $color-gray-9;
+    font-family: $font-family-sans;
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+
+  // override type scale
+  #pjax-container & .wp-caption-text {
+    font-size: $font-size-xxs;
+  }
+}
+
+.page__content {
+
+  .wp-caption-text {
+    color: $color-white;
+    opacity: .6;
+  }
+}
+
+
+// 2. Page Transitions
+// -------
+
+.l--content,
+.l--footer {
+  animation: opacityTransitionIn 900ms $timing-butter 0ms;
+  animation-fill-mode: forwards;
+
+  .is-exiting & {
+    animation: opacityTransitionOut 900ms $timing-butter 0ms;
+    animation-fill-mode: forwards;
+  }
+}
+
+.l--footer {
+  animation: opacityTransitionIn 900ms $timing-butter 0ms;
+  animation-fill-mode: forwards;
+
+  .is-exiting + & {
+    animation: opacityTransitionOut 900ms $timing-butter 0ms;
+    animation-fill-mode: forwards;
+  }
+}
+
+.loader {
+  @include fixed(0);
+  @include transition(opacity);
+  background-color: $color-white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  z-index: -1;
+
+  .is-exiting & {
+    opacity: 1;
+    z-index: 101;
+  }
+}
+
+.circle {
+  @include size(60px);
+  display: block;
+  border-radius: 30px;
+  position: relative;
+
+  background-image: linear-gradient(
+    to bottom left,
+    #fff 0%,
+    #fff 12.5%,
+    #0EC8DE 25%,
+    #0E76DE 37.5%,
+    #7D40CE 50%,
+    #0E76DE 67.5%,
+    #0EC8DE 75%,
+    #fff 87.5%,
+    #fff 100%
+  );
+  background-size: 720px 720px;
+  background-position: 0% 100%;
+
+  &:before {
+    @include pseudo(20px n n 20px);
+    @include size(20px);
+    border-radius: 10px;
+    background-color: #fff;
+  }
+
+  .is-exiting & {
+    animation: bgSlide 2000ms linear;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes bgSlide {
+  0% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 100% 0%;
+  }
+}

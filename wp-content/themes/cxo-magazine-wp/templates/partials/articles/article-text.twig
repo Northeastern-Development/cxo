@@ -1,0 +1,13 @@
+<section class="article-component article-text {% if content.intro %}article-text--has-intro{% endif %}">
+
+  {% if content.intro %}
+    <div class="article-text__intro">
+
+      <p class="article-text__intro-text">{{ content.intro }}</p>
+
+    </div>
+  {% endif %}
+
+  <div class="article__content article-text__content">{{ content.text }}</div>
+
+</section>

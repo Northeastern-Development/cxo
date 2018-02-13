@@ -1,0 +1,15 @@
+{% extends "partials/teases/tease.twig" %}
+
+{% block body %}
+
+  <p class="latest-posts__post-category">
+    {% for term in post.terms %}
+      <a href="{{ term.link }}" class="latest-posts__post-category--link">{{ term.name }}</a>
+    {% endfor %}
+  </p>
+  <a href="{{ post.link }}" class="latest-posts__post-item--link">
+    <h3 class="latest-posts__post-title">{{ post.title }}</h3>
+    <p class="latest-posts__post-description">{{ post.content|excerpt(20) }}</p>
+  </a>
+
+{% endblock %}

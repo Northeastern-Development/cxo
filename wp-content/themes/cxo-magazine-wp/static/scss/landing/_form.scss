@@ -1,0 +1,136 @@
+// Email Form
+// -------
+// Form styles for the Mailchimp email subscribe form
+//
+// SEE ALSO: base-revision.scss
+//           intro.scss
+//           subscribe.scss
+//
+// TOC:
+// 1. Email Subscribe
+
+
+// 1. Email Subscribe
+// -------
+
+.newsletter-form {
+  position: relative;
+}
+
+.subscribe__form-input {
+  @include reset-input;
+  border-bottom: 3px solid $color-white;
+  color: rgba($color-white, 0.85);
+  font-size: 14px;
+  height: 34px;
+  line-height: 30px;
+  margin-bottom: 15px;
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+  }
+
+  @include mq($bp--desktop) {
+    font-size: 16px;
+    height: 40px;
+    line-height: 36px;
+  }
+
+  &::placeholder {
+    color: rgba($color-white, 0.6);
+  }
+
+  &:focus {
+    border-color: $color-yellow;
+    color: $color-white;
+  }
+}
+
+.form-subscribe {
+  width: 100%;
+}
+
+.subscribe__form-submit {
+  @include reset-input;
+  @include transition;
+  background-color: $color-yellow;
+  border: 3px solid $color-yellow;
+  color: $color-black;
+  display: block;
+  font-size: 14px;
+  font-weight: $font-weight--bold;
+  letter-spacing: .05em;
+  line-height: 1;
+  margin: 15px auto 0;
+  padding: 7px 12px;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    background-color: $color-black;
+    border-color: $color-yellow;
+    color: $color-yellow;
+    cursor: pointer;
+  }
+}
+
+.form-response {
+  text-align: center;
+}
+
+.error-message,
+.success-message {
+  @include transition(opacity);
+  display: inline-block;
+  font-size: 14px;
+  font-weight: $font-weight--bold;
+  line-height: 1;
+  margin: 15px auto 0;
+  max-height: 0;
+  opacity: 0;
+  text-align: center;
+  width: 0;
+
+  &.active {
+    max-height: 100px;
+    opacity: 1;
+    padding: 5px 7px;
+    width: auto;
+  }
+}
+
+.error-message {
+  background-color: $color-rose;
+  color: $color-white;
+}
+
+.success-message {
+  background-color: $color-mint;
+  color: $color-black;
+}
+
+.form-loading {
+  display: none;
+
+  &:before,
+  &:after {
+    @include pseudo(50% n n 50%);
+    @include size(30px);
+    animation: circleScale 2000ms $timing-butter;
+    animation-iteration-count: infinite;
+    background-color: $color-mint;
+    border-radius: 15px;
+    margin-top: -15px;
+    margin-left: -15px;
+  }
+
+  &:after {
+    animation-delay: 1000ms;
+  }
+
+  .loading & {
+    @include absolute(0);
+    background-color: rgba($color-black, 0.5);
+    display: block;
+  }
+}

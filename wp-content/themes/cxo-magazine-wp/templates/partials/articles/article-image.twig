@@ -1,0 +1,25 @@
+<section class="article-component article-image article-image--{{ content.image_layout }}">
+
+  <div class="article-image__art">
+
+    <figure class="article-image__figure">
+      {% set image = TimberImage(content.image) %}
+      <img src="{{ image.src }}" alt="{{ image.alt }}" class="article-image__img">
+    </figure>
+
+  </div>
+
+  {% if (content.caption) or (content.caption_heading) %}
+  <div class="article-image__caption">
+
+    {% if content.caption_heading %}
+    <p class="article-image__caption--heading">{{ content.caption_heading }}</p>
+    {% endif %}
+    {% if content.caption %}
+    <p class="article-image__caption--text">{{ content.caption }}</p>
+    {% endif %}
+
+  </div>
+  {% endif %}
+
+</section>

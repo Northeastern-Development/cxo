@@ -1,0 +1,43 @@
+{% extends "partials/teases/tease.twig" %}
+
+{% block header %}
+
+{% set title_image = TimberImage(post.title_image) %}
+{% if post.thumbnail %}
+<div class="tease__image">
+  <a href="{{ post.link }}" class="tease__title--link">
+    <figure class="tease__figure">
+      <img src="{{post.thumbnail.src}}" alt="{{ post.thumbnail.alt }}" class="tease__img" />
+    </figure>
+  </a>
+</div>
+{% elseif title_image|length > 0 %}
+<div class="tease__image">
+  <a href="{{ post.link }}" class="tease__title--link">
+    <figure class="tease__figure">
+      <img src="{{title_image}}" alt="{{ title_image.alt }}" class="tease__img" />
+    </figure>
+  </a>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="tease__header-titles">
+  <h1 class="tease__title">
+    <a href="{{ post.link }}" class="tease__title--link">{{ post.display_title ? post.display_title : post.post_title}}</a>
+  </h1>
+</div>
+<div class="tease__excerpt">
+  {% if post.sub_heading%}
+    {{ post.sub_heading }}
+  {% elseif post.post_excerpt %}
+    {{ post.post_excerpt }}
+  {% else %}
+    {{post.content|excerpt(40)}}
+  {% endif %}
+</div>
+
+{% endblock %}

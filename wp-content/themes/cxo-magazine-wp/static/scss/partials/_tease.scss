@@ -1,0 +1,339 @@
+// Tease
+// -------
+// Base styles for teases
+//
+// SEE ALSO: pages/report.scss
+//           pages/archive-reports.scss
+//
+//
+// TOC:
+// 1. Basic Layout
+// 2. Archive Tease
+// 3. Report Tease
+
+
+// 1. Basic Layout
+// -------
+
+.base-tease {
+}
+
+.tease__header {
+  margin-bottom: 15px;
+  position: relative;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 25px;
+  }
+}
+
+.tease__topic {
+  @include grid-child;
+  margin-bottom: 15px;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 0;
+  }
+}
+
+.tease__header-titles {
+  @include grid-child;
+}
+
+.tease__title {
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 20px 100px,
+    $max-sizes: 44px 2000px);
+  margin-bottom: 15px;
+  line-height: 1.35;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 25px;
+  }
+}
+
+.tease__title--link {
+  @include transition(color);
+  color: $color-gray-0b;
+
+  &:hover,
+  &:focus {
+    color: $color-gray-0b;
+  }
+}
+
+.tease__byline {
+  color: $color-gray-8;
+  font-size: $font-size-xxxs;
+  margin-bottom: 3px;
+
+  @include mq($bp--tablet-xl) {
+    font-size: $font-size-xxs;
+  }
+}
+
+.tease__byline-by {
+  color: $color-gray-a;
+}
+
+.tease__byline-title {
+
+  &:before {
+    color: $color-gray-a;
+    content: '—';
+    opacity: .7;
+    padding-right: 5px;
+  }
+}
+
+.tease__topic--link {
+  @include transition(color);
+  color: $color-gray-8;
+  display: block;
+  font-size: $font-size-xxs;
+  font-weight: $font-weight--bold;
+  text-transform: uppercase;
+
+  @include mq($bp--tablet-xl) {
+    @include font-con(24px, 60px);
+    margin-top: 5px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-top: 10px;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-gray-0b;
+  }
+}
+
+.tease__excerpt {
+  @include grid-child;
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 15px 100px,
+    $max-sizes: 20px 2000px);
+  color: $color-gray-8;
+  font-family: $font-family-sans;
+}
+
+.tease__image {
+  @include grid-child;
+}
+
+
+// 2. Archive Tease
+// -------
+
+.tease-archive {
+  background: transparent url("../../../templates/partials/svg/circle-divider-open.svg") no-repeat 50% 0;
+  margin-bottom: 45px;
+  padding-top: 45px;
+
+  @include mq($bp--desktop-xl) {
+    margin-bottom: 75px;
+    padding-top: 75px;
+  }
+
+  &:first-child {
+    background-image: none;
+    padding-top: 0;
+
+    @include mq($bp--tablet-xl) {
+      padding-top: 0;
+    }
+
+    @include mq($bp--desktop-xl) {
+      padding-top: 0;
+    }
+  }
+
+  // HEADER
+  .tease__header {
+
+    @include mq($bp--tablet-xl) {
+      display: flex;
+    }
+  }
+
+  // TITLES
+  .tease__header-titles {
+
+    @include mq($bp--tablet-xl) {
+      margin-right: $two-col;
+      width: $eight-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-right: $three-col;
+      width: $six-col;
+    }
+  }
+
+  // TOPIC
+  .tease__topic {
+    @include grid-child;
+    margin-bottom: 10px;
+
+    @include mq($bp--tablet-xl) {
+      margin-bottom: 0;
+      width: $two-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-left: $one-col;
+    }
+  }
+
+  // LINK
+  .tease__title--link {
+    @include transition(box-shadow);
+    box-shadow: inset 0 -3px $color-yellow;
+
+    &:hover,
+    &:focus {
+      box-shadow: inset 0 -.25em $color-yellow;
+    }
+  }
+
+  // CONTENT
+  .tease__content {
+
+    @include mq($bp--tablet-xl) {
+      display: flex;
+    }
+  }
+
+  .tease__excerpt {
+
+    @include mq($bp--tablet-xl) {
+      margin-left: $two-col;
+      margin-right: $two-col;
+      width: $eight-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-left: $five-col;
+      margin-right: $one-col;
+      width: $six-col;
+    }
+  }
+
+  &.base-tease--has-image .tease__excerpt {
+
+    @include mq($bp--tablet-xl) {
+      margin-left: 0;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-left: 0;
+    }
+  }
+
+  // IMAGES
+  .tease__image {
+    @include grid-child;
+    margin-bottom: 15px;
+
+    @include mq($bp--tablet-xl) {
+      margin-left: $one-col;
+      width: $three-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-left: $two-col;
+      width: $three-col;
+    }
+
+    @include mq($bp--desktop-xxxl) {
+      margin-left: $three-col;
+      width: $two-col;
+    }
+  }
+}
+
+
+// 3. Report Tease
+// -------
+
+.tease-report {
+  @include grid-child;
+  margin-top: 15px;
+
+  @include mq($bp--tablet-xl) {
+    margin-top: 0;
+    width: $four-col;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:nth-child(n + 4) {
+
+    @include mq($bp--tablet-xl) {
+      margin-top: 25px;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-top: 50px;
+    }
+  }
+
+  .base-tease-inner {
+    display: flex;
+    height: 100%;
+  }
+
+  .base-tease-inner--link {
+    @include transition(transform);
+    background-position: 50% 50%;
+    background-size: cover;
+    backface-visibility: hidden;
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 50vh;
+    padding: 5vw;
+    position: relative;
+
+    &:before {
+      @include pseudo(0);
+      background-color: rgba($color-black, .65);
+    }
+
+    @include mq($bp--tablet-xl) {
+      padding: 25px 0;
+    }
+
+    &:hover,
+    &:focus {
+      transform: scale(1.025);
+    }
+  }
+
+  .tease__header {
+    padding-top: 10vw;
+    margin-bottom: 5px;
+  }
+
+  .tease__title {
+    @include font-con(44px, 120px);
+    color: $color-white;
+    margin-bottom: 0;
+  }
+
+  .tease__excerpt {
+    @include fluid-size(
+      $property: font-size,
+      $min-sizes: 15px 100px,
+      $max-sizes: 18px 2000px);
+    color: $color-white;
+    line-height: 1.35;
+    position: relative;
+  }
+}

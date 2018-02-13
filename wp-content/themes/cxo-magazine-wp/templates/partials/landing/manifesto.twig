@@ -1,0 +1,41 @@
+<div class="landing-about__manifesto" id="manifesto">
+
+  <h2 class="landing-about__section-heading">Our Vision</h2>
+
+  <div class="landing-about__manifesto-content">
+
+    {% set manifesto = page.get_field('manifesto') %}
+
+    <div class="landing-manifesto">
+
+      <div class="landing-manifesto-short">
+
+        <div class="landing-manifesto--left">
+
+          {{ manifesto.intro }}
+
+        </div>
+
+        <div class="landing-manifesto--right">
+
+          {{ manifesto.short_copy }}
+
+        </div>
+
+      </div>
+
+      <div class="landing-manifesto-overflow">
+
+          {{ manifesto.long_copy }}
+
+      </div>
+
+      <p class="landing-manifesto__more">
+        <button type="button" class="landing-manifesto__more-link js-toggle-class" tabindex="0" aria-label="Read more of CXO's manifesto" data-t-class="show-more" data-t-elem-pos="parent" data-t-selector=".landing-about__manifesto">Read <span>more</span></button>
+      </p>
+
+    </div>
+
+  </div>
+
+</div>

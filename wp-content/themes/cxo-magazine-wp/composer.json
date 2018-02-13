@@ -1,0 +1,76 @@
+{
+  "name" : "CXO Magazine",
+  "description" : "WordPress theme for the CXO Magazine",
+  "type" : "wordpress-theme",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "advanced-custom-fields/advanced-custom-fields-pro",
+        "version": "5.6.7",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9MTIyNjc4fHR5cGU9cGVyc29uYWx8ZGF0ZT0yMDE4LTAxLTE2IDE2OjIwOjI4&t=5.6.7"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "deliciousbrains/wp-migrate-db-pro",
+        "type": "wordpress-plugin",
+        "version": "dev-master",
+        "dist": {
+          "type": "zip",
+          "url": "https://deliciousbrains.com/dl/wp-migrate-db-pro-latest.zip?licence_key=193a18f8-334b-433b-8b7a-39e21b890203&site_url=dev-cxo-magazine.pantheonsite.io"
+        },
+        "require": {
+          "composer/installers": "v1.0.7"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "deliciousbrains/wp-migrate-db-pro-media-files",
+        "type": "wordpress-plugin",
+        "version": "dev-master",
+        "dist": {
+          "type": "zip",
+          "url": "https://deliciousbrains.com/dl/wp-migrate-db-pro-media-files-latest.zip?licence_key=193a18f8-334b-433b-8b7a-39e21b890203&site_url=dev-cxo-magazine.pantheonsite.io"
+        },
+        "require": {
+          "composer/installers": "v1.0.7"
+        }
+      }
+    }
+  ],
+  "extra": {
+    "installer-paths": {
+      "plugins/{$name}/": [
+        "wpackagist-plugin/*",
+        "type:wordpress-plugin"
+      ]
+    }
+  },
+  "require": {
+    "timber/timber": "1.2",
+    "advanced-custom-fields/advanced-custom-fields-pro": "5.6.7",
+    "deliciousbrains/wp-migrate-db-pro": "dev-master",
+    "deliciousbrains/wp-migrate-db-pro-media-files": "dev-master",
+    "filp/whoops": "^2.1",
+    "wpackagist-plugin/wp-polls": "^2.73.8",
+    "vlucas/phpdotenv": "2.4",
+    "upstatement/routes": "0.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "CXO\\": "src"
+    }
+  }
+}

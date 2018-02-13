@@ -1,0 +1,44 @@
+language: php
+php:
+- 7.0
+services:
+- docker
+env:
+- NODE_ENV=production
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+addons:
+  ssh_known_hosts:
+  - appserver.dev.aa19e708-0df7-4489-8341-437b79509b9b.drush.in
+cache:
+  directories:
+  - "$HOME/.composer/cache"
+  - "$HOME/.composer/cache/files"
+  - yarn
+before_install:
+- docker-compose up -d
+- openssl aes-256-cbc -K $encrypted_da55a84cd4f7_key -iv $encrypted_da55a84cd4f7_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
+- ssh-keyscan appserver.dev.aa19e708-0df7-4489-8341-437b79509b9b.drush.in >> ~/.ssh/known_hosts
+- ssh-keyscan appserver.test.aa19e708-0df7-4489-8341-437b79509b9b.drush.in >> ~/.ssh/known_hosts
+install:
+- ". $HOME/.nvm/nvm.sh"
+- nvm install $(cat .nvmrc)
+script: skip
+before_deploy:
+- docker-compose exec wordpress sh -c "cd wp-content/themes/cxo-magazine-wp && composer
+  install --no-scripts"
+- yarn install
+- npm install -g gulp-cli
+- gulp build
+- eval "$(ssh-agent -s)"
+- chmod 600 $TRAVIS_BUILD_DIR/deploy_rsa
+- ssh-add $TRAVIS_BUILD_DIR/deploy_rsa
+deploy:
+- provider: script
+  skip_cleanup: true
+  script: "/bin/sh ./deploy.sh development"
+  on:
+    branch: develop

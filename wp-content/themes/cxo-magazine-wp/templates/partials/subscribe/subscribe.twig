@@ -1,0 +1,30 @@
+<div class="subscribe-wrapper">
+
+  <section class="subscribe-body">
+    <div class="subscribe-body-inner">
+
+      <div class="subscribe-body__copy">
+        <div class="subscribe-body__copy-inner">
+
+        {% set subscribe = options.subscribe_modal %}
+        <h2 class="subscribe-body__headline">{{ subscribe.headline }}</h2>
+        <p class="subscribe-body__description">{{ subscribe.description }}</p>
+
+        </div>
+      </div>
+
+      <div class="subscribe-body__form">
+        {% include 'partials/subscribe/subscribe-form-modal.twig'%}
+      </div>
+
+      <div class="subscribe-close">
+        <button type="button" class="subscribe-close__button js-toggle-class" data-t-elem-pos="parent" data-t-selector="body" data-t-class="js-subscribe-active">
+          <span class="subscribe-close__button--icon"></span>
+          <span class="subscribe-close__button--text">Close</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+</div>

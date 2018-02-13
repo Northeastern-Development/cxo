@@ -1,0 +1,41 @@
+<header class="header-site">
+
+  <div class="header-site__branding">
+
+    {% if is_home %}
+      {% include 'partials/svg/logo-cxo-magazine.svg' %}
+    {% else %}
+      <a href="/" class="header-site__branding--link">
+        {% include 'partials/svg/logo-cxo-magazine.svg' %}
+      </a>
+    {% endif %}
+    <p class="header-site__tagline">Ideas that shape work</p>
+
+  </div>
+
+  <div class="header__toggle header__toggle--site js-toggle-class" data-t-elem-pos="parent" data-t-selector="body" data-t-class="js-menu-active">
+    <span class="header__toggle-icon"></span>
+    <span class="header__toggle-close">Close</span>
+  </div>
+
+  <div class="header-site__navigation">
+
+    <nav class="header-site__nav">
+      <ul class="header-site__nav-list">
+        {% for menu_item in options.home_menu %}
+          <li class="header-site__nav-list-item">
+            <a href="{{ menu_item.page_link }}" class="header-site__nav-list-item--link">{{ menu_item.label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <p class="header-site__subscribe">
+      <button type="button" class="header-site__subscribe--button js-toggle-class" aria-label="Subscribe to CXO's newsletter" data-t-elem-pos="parent" data-t-selector="body" data-t-class="js-subscribe-active">Subscribe</button>
+    </p>
+
+    <p class="header-site__byline">Published by Northeastern University</p>
+
+  </div>
+
+</header>

@@ -1,0 +1,33 @@
+@charset 'UTF-8';
+
+/*!
+ * Style Name: CxO
+ * Description: Custom styles for CxO
+ * Author: Upstatement
+ * Version: 1.0.0
+ */
+
+// Compiled Files
+// -------
+
+// Import Upbase
+@import 'upbase';
+
+// Globals
+@import 'abstracts/variables';
+@import 'abstracts/fonts';
+@import 'mixins/mixins';
+@import 'utilities/utilities';
+
+// Base styles
+@import 'base/global';
+@import 'base/typography';
+@import 'base/layout';
+
+// Components
+@import 'components/components';
+@import 'partials/partials';
+
+// Pages
+@import 'landing/landing';
+@import 'pages/pages';

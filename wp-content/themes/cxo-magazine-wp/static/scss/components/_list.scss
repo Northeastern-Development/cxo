@@ -1,0 +1,291 @@
+// Lists
+// -------
+// Base styles for Pull Quote component
+//
+// TOC:
+// 1. Basic Layout
+// 2. List Basics
+
+
+// 1. Basic Layout
+// -------
+
+.article-list {
+}
+
+.article-list__header {
+  @include grid-child;
+  width: 100%;
+}
+
+.article-list__heading {
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 15px 100px,
+    $max-sizes: 24px 2000px);
+  color: $color-black;
+  font-family: $font-family-sans;
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+.article-list__caption {
+  color: $color-gray-7;
+  font-size: $font-size-xxs;
+  margin-bottom: 0;
+}
+
+
+// 2. List Basics
+// -------
+
+.article-list__listing {
+  @include ul-null;
+
+  @include mq($bp--tablet-xl) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.article-list__item {
+  counter-increment: article-list;
+  position: relative;
+}
+
+.article-list__item-heading {
+  color: $color-black;
+  display: block;
+}
+
+.article-list__item-description {
+  color: $color-gray-7;
+  font-family: $font-family-sans;
+  font-size: $font-size-xxs;
+
+  @include mq($bp--tablet-xl) {
+    font-size: $font-size-xs;
+  }
+}
+
+
+// 3. Default List
+// -------
+
+.article-list--default {
+
+  .article-list__header {
+
+    @include mq($bp--desktop-xl) {
+      margin-left: $one-col;
+      margin-right: $one-col;
+    }
+  }
+
+  .article-list__listing {
+    @include grid-child;
+    margin-top: 24px;
+
+    @include mq($bp--tablet-xl) {
+      margin-top: 30px;
+    }
+
+    @include mq($bp--desktop) {
+      margin-top: 45px;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-left: $one-col;
+      margin-right: $one-col;
+    }
+  }
+
+  .article-list__item {
+    border-bottom: 1px solid $color-gray-d;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    min-width: 100%;
+
+    @include mq($bp--tablet-xl) {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    @include mq($bp--desktop) {
+      padding-top: 44px;
+      padding-bottom: 44px;
+    }
+
+    &:first-child {
+      border-top: 1px solid $color-gray-d;
+    }
+  }
+
+  .article-list__item-inner {
+
+    @include mq($bp--tablet-xl) {
+      align-items: flex-end;
+      display: flex;
+    }
+  }
+
+  .article-list__item-heading {
+    @include font-con(60px, 140px);
+    color: $color-black;
+    display: block;
+    margin-bottom: -.1em;
+    padding-left: 30px;
+    position: relative;
+
+    @include mq($bp--tablet-xl) {
+      width: $six-col;
+    }
+
+    &:before {
+      @include absolute(n n .85em 0);
+      color: $color-gray-b;
+      content:"0" counter(article-list);
+      font-family: $font-family-sans;
+      font-size: $font-size-xxs;
+      font-weight: $font-weight--bold;
+
+      @include mq($bp--tablet-xl) {
+        bottom: 1em;
+      }
+
+      @include mq($bp--desktop) {
+        bottom: 1.2em;
+      }
+    }
+  }
+
+  .article-list__item-description {
+    margin-top: 16px;
+
+    @include mq($bp--tablet-xl) {
+      margin-top: 0;
+      padding-left: $grid-padding;
+      width: $six-col;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+
+// 4. Box List
+// -------
+
+.article-list--boxed {
+
+  .article-list__header {
+
+    @include mq($bp--tablet-xl) {
+      text-align: center;
+    }
+  }
+
+  .article-list__listing {
+
+    @include mq($bp--tablet-xl) {
+      justify-content: center;
+    }
+  }
+
+  .article-list__item {
+    @include grid-child;
+    margin-top: 24px;
+
+    @include mq($bp--tablet-xl) {
+      display: flex;
+      margin-top: 30px;
+      max-width: $six-col;
+      width: $six-col;
+    }
+
+    @include mq($bp--desktop) {
+      max-width: $four-col;
+      margin-top: 45px;
+      width: $four-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      max-width: $three-col;
+      width: $three-col;
+    }
+  }
+
+  // COUNTS
+
+  &.article-list--4 .article-list__item  {
+
+    @include mq($bp--desktop) {
+      max-width: $six-col;
+      width: $six-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      max-width: $three-col;
+      width: $three-col;
+    }
+  }
+
+  .article-list__item-inner {
+    background-color: $color-black;
+    padding: 120px $grid-padding-mobile $grid-padding-mobile $grid-padding-mobile;
+    position: relative;
+
+    @include mq($bp--tablet-xl) {
+      justify-content: flex-end;
+      display: flex;
+      flex-direction: column;
+      padding: 120px $grid-padding $grid-padding $grid-padding;
+    }
+
+    @include mq($bp--desktop) {
+      min-height: 50vh;
+    }
+
+    @include mq($bp--desktop-xl) {
+      min-height: 60vh;
+    }
+
+    &:before {
+      @include absolute(#{$grid-padding-mobile} n n #{$grid-padding-mobile});
+      @include size(32px);
+      border: 1px solid $color-gray-9;
+      border-radius: 50%;
+      color: $color-gray-d;
+      content:"0" counter(article-list);
+      font-family: $font-family-sans;
+      font-size: $font-size-xxxs;
+      font-weight: $font-weight--bold;
+      line-height: 29px;
+      text-align: center;
+
+      @include mq($bp--tablet-xl) {
+        top: $grid-padding;
+        left: $grid-padding;
+      }
+    }
+  }
+
+  .article-list__item-heading {
+    @include font-con(60px, 90px);
+    color: $color-white;
+    display: block;
+    margin-bottom: -.025em;
+    position: relative;
+  }
+
+  .article-list__item-description {
+    color: $color-gray-b;
+
+    p:last-child {
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<section class="archive-pagination">
+
+    <div class="archive-pagination__previous">
+    {% if posts.pagination.prev %}
+      <a href="{{ posts.pagination.prev.link }}" class="archive-pagination__link">
+        <span class="archive-pagination__text">Previous</span>
+        <span class="archive-pagination__arrow">
+          {% include 'partials/svg/arrow-pagination.svg' with { 'context_class' : 'arrow-pagination--previous' } %}
+        </span>
+      </a>
+    {% else %}
+      <div class="archive-pagination__disabled">
+        <span class="archive-pagination__text">Previous</span>
+        <span class="archive-pagination__arrow">
+          {% include 'partials/svg/arrow-pagination.svg' with { 'context_class' : 'arrow-pagination--previous' } %}
+        </span>
+      </div>
+    {% endif %}
+    </div>
+
+    <div class="archive-pagination__next">
+    {% if posts.pagination.next %}
+      <a href="{{ posts.pagination.next.link }}" class="archive-pagination__link">
+        <span class="archive-pagination__text">Next</span>
+        <span class="archive-pagination__arrow">
+          {% include 'partials/svg/arrow-pagination.svg' with { 'context_class' : 'arrow-pagination--next' } %}
+        </span>
+      </a>
+    {% else %}
+      <div class="archive-pagination__disabled">
+        <span class="archive-pagination__text">Next</span>
+        <span class="archive-pagination__arrow">
+          {% include 'partials/svg/arrow-pagination.svg' with { 'context_class' : 'arrow-pagination--next' } %}
+        </span>
+      </div>
+    {% endif %}
+    </div>
+
+</section>

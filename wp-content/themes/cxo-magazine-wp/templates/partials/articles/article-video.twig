@@ -1,0 +1,41 @@
+<section class="article-component article-video article-video--{{ content.layout }} {% if content.layout == 'full' %}js-toggle-class" data-t-class="js-video-active{% endif %}">
+
+  <div class="article-video-inner">
+
+    {% if content.layout == 'full' %}
+    <div class="article-video__still">
+
+      {% set image = TimberImage(content.thumbnail) %}
+      <figure class="article-video__figure">
+        <img src="{{ image.src }}" alt="{{ image.alt }}" class="article-video__img">
+      </figure>
+
+    </div>
+    {% endif %}
+
+    <div class="article-video__embed">
+
+      <div class="article-video__embed-inner">
+
+        {{ content.video_embed }}
+
+      </div>
+
+    </div>
+
+    <div class="article-video__caption">
+
+      <div class="article-video__caption-header">
+        {% include 'partials/svg/play-button.svg' %}
+        <h3 class="article-video__caption-heading">{{ content.title }}</h3>
+      </div>
+
+      <div class="article-video__caption-description">
+        {{ content.description }}
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

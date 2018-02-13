@@ -1,0 +1,55 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+  <div class="report-wrapper">
+
+    <section class="report__header">
+
+      <div class="report__header-inner">
+
+        <div class="report__header-titles">
+          <p class="report-overline">{{ page.get_field('overline') }}</p>
+          <h1 class="report__header-headline">{{ page.title }}</h1>
+        </div>
+
+        <div class="report__header-description">
+          {{ page.content }}
+        </div>
+
+      </div>
+
+      <div class="report-start">
+        {% for topical_post in page.get_field('topical_posts')|slice(0, 1) %}
+        {% set start_post = topical_post.post %}
+        <a href="{{ page.link }}{{ start_post.slug }}" class="report-start--link">
+          <span class="report-start__text">Start Reading</span>
+          {% include 'partials/svg/arrow-down.svg' %}
+        </a>
+        {% endfor %}
+      </div>
+
+    </section>
+
+    {% if page.get_field('topical_posts') %}
+    <section class="report__articles">
+
+      {% for row in page.get_field('topical_posts')|batch(2) %}
+      <div class="report__article-row">
+
+        {% for topical_post in row %}
+          {% set post = topical_post.post %}
+          {% set title_image = TimberImage(post.title_image) %}
+            {% include 'partials/teases/tease-report-post.twig' with {context_class: 'tease-report-post'} %}
+          {% endfor %}
+
+      </div>
+      {% endfor %}
+
+    </section>
+    {% endif %}
+
+  </div>
+
+{% endblock %}
+

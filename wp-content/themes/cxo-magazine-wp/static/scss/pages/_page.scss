@@ -1,0 +1,77 @@
+// Archive
+// -------
+// Base styles for archives
+//
+// TOC:
+// 1. Basic Layout
+
+
+// 1. Basic Layout
+// -------
+
+.page-wrapper {
+  @include vertical-component;
+  background-color: $color-gray-0b;
+  background-image: linear-gradient(to bottom left, $color-gray-0b4, $color-gray-0b 100%);
+}
+
+.page-body {
+  @include grid-parent;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.page__title {
+  @include font-con(44px, 90px);
+  color: $color-white;
+  margin-bottom: 30px;
+  text-align: center;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 45px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-bottom: 60px;
+  }
+}
+
+.page__content {
+  font-family: $font-family-sans;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $color-white;
+  }
+
+  p,
+  li {
+    @include fluid-size(
+      $property: font-size,
+      $min-sizes: 16px 100px,
+      $max-sizes: 21px 2000px);
+    color: $color-gray-b;
+  }
+
+  a {
+    @include transition;
+    box-shadow: inset 0 -1px $color-gray-9;
+    color: $color-white;
+
+    &:hover,
+    &:focus {
+      box-shadow: inset 0 -.25em $color-sky;
+      color: $color-white;
+    }
+  }
+
+  p strong,
+  li strong {
+    color: $color-white;
+   }
+}

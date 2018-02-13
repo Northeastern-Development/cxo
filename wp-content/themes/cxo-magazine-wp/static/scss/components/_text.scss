@@ -1,0 +1,94 @@
+// Text
+// -------
+// Base styles for Text component
+//
+// TOC:
+// 1. Basic Layout
+
+
+// 1. Basic Layout
+// -------
+
+.article-text {
+}
+
+.article-text__intro {
+  @include grid-child;
+  padding-bottom: 45px;
+  position: relative;
+  z-index: $zIndex-2;
+
+  @include mq($bp--tablet-xl) {
+    margin-left: $one-col;
+    padding-bottom: 90px;
+    width: $nine-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-left: $two-col;
+    padding-bottom: 120px;
+    width: $seven-col;
+  }
+}
+
+.article-text__intro-text {
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 20px 100px,
+    $max-sizes: 48px 2000px);
+  color: $color-black;
+  font-family: $font-family-sans;
+  font-weight: $font-weight--bold;
+  line-height: 1.3;
+  margin-bottom: 0;
+}
+
+.article-text__content {
+  @include grid-child;
+  margin: 0 auto;
+  position: relative;
+  z-index: $zIndex-2;
+
+  @include mq($bp--tablet-xl) {
+    width: $eight-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    width: $six-col;
+  }
+
+  .article-text--has-intro &:before {
+
+    @include mq($bp--tablet-xl) {
+      @include pseudo(-50px n n #{$grid-padding});
+      background-color: $color-gold;
+      height: 10px;
+      width: $one-col;
+      z-index: $zIndex-1;
+    }
+
+    @include mq($bp--desktop-xl) {
+      top: -70px;
+    }
+  }
+
+  & p:last-child,
+  & ul:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.article-text__content {
+
+  a {
+    @include transition(box-shadow);
+    box-shadow: inset 0 -.15em $color-yellow;
+    color: $color-black;
+
+    &:hover,
+    &:focus {
+      box-shadow: inset 0 -.3em $color-yellow;
+      color: $color-black;
+    }
+  }
+}

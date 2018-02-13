@@ -1,0 +1,236 @@
+// Header Report
+// -------
+// Base styles for Report Header
+//
+// TOC:
+// 1. Basic Layout
+// 2. Branding
+// 3. Report Heading
+
+
+// 1. Basic Layout
+// -------
+
+.header-report {
+  @include fixed(0 0 n 0);
+  background-color: $color-black;
+  height: 60px;
+  width: 100%;
+  z-index: $zIndex-10 + 2;
+
+  @include mq($bp--tablet-xl) {
+    height: 70px;
+  }
+
+  .js-menu-active & {
+    position: fixed;
+  }
+}
+
+
+// 2. Branding
+// -------
+
+.header-report__branding {
+  @include absolute(12px n n $grid-padding-mobile);
+  margin-bottom: 0;
+
+  @include mq($bp--tablet-xl) {
+    align-items: center;
+    display: flex;
+    left: #{$grid-padding};
+    top: 12px;
+  }
+}
+
+.cxo-magazine-logo--svg {
+
+  .header-report__branding & {
+    display: block;
+    height: 40px;
+    width: auto;
+    margin-right: 15px;
+
+    @include mq($bp--tablet-xl) {
+      height: 46px;
+      width: 99px;
+    }
+  }
+}
+
+.header-site__byline {
+
+  .header-report__branding & {
+    color: $color-white;
+    display: none;
+    margin-bottom: 0;
+
+    @include mq($bp--tablet-xl) {
+      color: $color-gray-b;
+      display: block;
+      font-size: $font-size-xxs;
+      line-height: 1;
+    }
+  }
+}
+
+
+// 3. Report Heading
+// -------
+
+.header-report__title {
+  display: none;
+  opacity: 1;
+
+  @include mq($bp--phablet) {
+    @include absolute(15px n n 50%);
+    @include transition;
+    color: $color-white;
+    display: block;
+    line-height: 1.2;
+    text-align: center;
+    transform: translateX(-50%);
+  }
+
+  .js-menu-active & {
+    opacity: 0;
+  }
+}
+
+.header-report__number {
+  color: $color-gray-9;
+  display: block;
+  font-size: 10px;
+  font-weight: $font-weight--bold;
+  margin-bottom: 0;
+  text-transform: uppercase;
+
+  @include mq($bp--tablet-xl) {
+    font-size: 11px;
+    margin-bottom: 1px;
+    margin-top: 5px;
+  }
+}
+
+.header-report__topic {
+  display: block;
+  font-size: $font-size-xxs;
+  line-height: 1;
+}
+
+// Toggle
+
+.header__toggle {
+  @include absolute(4px #{$grid-padding-mobile} n n);
+  @include size(50px, 49px);
+  @include transition(width);
+  border: 1px solid rgba($color-white,0.5);
+  color: $color-white;
+  overflow: hidden;
+}
+
+.header__toggle--report {
+  display: block;
+  top: 6px;
+
+  @include mq($bp--tablet-xl) {
+    right: $grid-padding;
+    top: 9px;
+    width: auto;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.header__toggle-icon {
+  @include absolute(22px n n 9px);
+  @include transition(all, 400ms);
+  background-color: $color-white;
+  width: 30px;
+  height: 3px;
+
+  &:before,
+  &:after {
+    @include pseudo(n);
+    @include transition(all, 400ms);
+    background-color: $color-white;
+    display: block;
+    height: 3px;
+  }
+
+  &:before {
+    top: -8px;
+    left: 0;
+    width: 18px;
+  }
+
+  &:after {
+    top: 8px;
+    left: 0;
+    width: 24px;
+  }
+
+  .js-menu-active & {
+    background-color: transparent;
+  }
+
+  .js-menu-active &:before {
+    left: 3px;
+    top: -11px;
+    transform: rotateZ(45deg);
+    transform-origin: 0 100%;
+    width: 30px;
+  }
+
+  .js-menu-active &:after {
+    left: 3px;
+    top: 11px;
+    transform: rotateZ(-45deg);
+    transform-origin: 0 0;
+    width: 30px;
+  }
+}
+
+.header__toggle:hover .header__toggle-icon:before,
+.header__toggle:hover .header__toggle-icon:after {
+  width: 30px;
+}
+
+.header__toggle-report,
+.header__toggle-close {
+  display: block;
+  padding: 0 15px 0 55px;
+  white-space: nowrap;
+}
+
+.header__toggle-report {
+
+  .js-menu-active & {
+    opacity: 0;
+  }
+}
+
+.header__toggle-close {
+  @include absolute(0 n n 0);
+  @include transition;
+  color: $color-gray-b;
+  font-size: 14px;
+  font-weight: $font-weight--bold;
+  line-height: 46px;
+  opacity: 0;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    color: $color-white;
+  }
+
+  .js-menu-active & {
+
+    @include mq($bp--tablet-xl) {
+      opacity: 1;
+    }
+  }
+}

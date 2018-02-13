@@ -1,0 +1,248 @@
+// Color Variables
+// ---------------
+
+// Grays
+$color-gray-0:               #000000;
+$color-gray-0b:              #0b2226;
+$color-gray-0b4:             #0b4049;
+$color-gray-1:               #111111;
+$color-gray-2:               #222222;
+$color-gray-3:               #333333;
+$color-gray-4:               #444444;
+$color-gray-5:               #555555;
+$color-gray-6:               #636668;
+$color-gray-7:               #717475;
+$color-gray-8:               #828689;
+$color-gray-9:               #999ea2;
+$color-gray-a:               #aeb1b2;
+$color-gray-b:               #b3bfc1;
+$color-gray-c:               #cbcfd0;
+$color-gray-d:               #dadfe0;
+$color-gray-e:               #e1e3e3;
+$color-gray-f0:              #f0f2f6;
+$color-gray-f5:              #f5f6f8;
+$color-gray-f7:              #f7f7f7;
+$color-gray-f9:              #f9f9f9;
+$color-gray-f:               #ffffff;
+$color-black:                $color-gray-0;
+$color-white:                $color-gray-f;
+
+$color-lilac:                #E25EFF;
+$color-plum:                 #7D40CE;
+$color-eggplant:             #4F169C;
+$color-navy:                 #0D0B4F;
+$color-night:                #1C0CAE;
+$color-sky:                  #14C5FF;
+$color-cornflower:           #449DFE;
+$color-light-blue:           #E0F2FD;
+$color-mint:                 #1BF0C4;
+$color-sun:                  #FEB23E;
+$color-peach:                #FC845D;
+$color-rose:                 #F22A4F;
+$color-wine:                 #BC0B5E;
+$color-yellow:               #f8e71c;
+$color-blush:                #f9f0f0;
+$color-slate:                #54787f;
+$color-gold:                 #D7B463;
+
+// For grid
+$color-red:                  #ff0000;
+
+// Applications
+$color-base:                 $color-gray-4;
+$color-base-tint-5:          rgba($color-base, .05);
+$color-base-tint-10:         rgba($color-base, .1);
+$color-base-tint-50:         rgba($color-base, .5);
+$color-body-bg:              $color-black;
+$color-wrapper-bg:           $color-gray-f;
+$color-link:                 $color-sky;
+$color-link-active:          $color-black;
+$color-link-hover:           $color-black;
+$color-border:               $color-base;
+$color-heading:              $color-black;
+$color-heading-small:        $color-base;
+$color-code:                 $color-base;
+$color-code-bg:              rgba($color-base, .1);
+$color-table-border:         $color-border;
+$color-table-head:           $color-base;
+$color-table-head-bg:        rgba($color-base, .1);
+$color-table-caption:        $color-base;
+$color-table-th-border:      $color-border;
+$color-table-td-border:      $color-border;
+$color-table-stripes:        rgba($color-base, .1);
+$color-input-focus-border:   $color-border;
+$color-button-bg:            transparent;
+$color-button-text:          $color-base;
+$color-button-primary-bg:    $color-base;
+$color-button-primary-text:  $color-white;
+$color-placeholder-text:     rgba($color-base, .4);
+$color-highlight-tag:        rgba($color-base, .1);
+
+
+// Typography & Vertical Whitespace
+// -------
+
+// Font Size
+
+$font-size-xxxs:             12px;
+$font-size-xxs:              14px;
+$font-size-xs:               16px;
+$font-size-sm:               18px;
+$font-size-md:               22px;
+$font-size-lg:               28px;
+$font-size-xl:               36px;
+$font-size-xxl:              60px;
+$font-size-xxxl:             72px;
+
+// applications
+$font-size-base:             $font-size-xs;
+$font-size-base-plus:        $font-size-sm;
+$font-size-h6:               $font-size-xs;
+$font-size-h5:               $font-size-sm;
+$font-size-h4:               $font-size-md;
+$font-size-h3:               $font-size-lg;
+$font-size-h2:               $font-size-xl;
+$font-size-h1:               $font-size-xxxl;
+$font-size-mono:             $font-size-xxxs;
+$font-size-table-caption:    $font-size-h6;
+$font-size-form:             $font-size-h5;
+$font-size-legend:           $font-size-h3;
+$font-size-button:           $font-size-h6;
+$font-size-monospace:        14px;
+
+// Line Height
+$line-height-base:           1.55;
+$line-height-micro:          1.3;
+$line-height-h6:             $line-height-base;
+$line-height-h5:             $line-height-base;
+$line-height-h4:             $line-height-base;
+$line-height-h3:             1.3;
+$line-height-h2:             1.2;
+$line-height-h1:             1.2;
+$line-height-jumbo:          1.1;
+$line-height-mono:           1.2;
+
+// Margin & Padding
+$font-margin-base:           0 0 25px 0;
+$font-margin-h6:             $font-margin-base;
+$font-margin-h5:             $font-margin-base;
+$font-margin-h4:             $font-margin-base;
+$font-margin-h3:             $font-margin-base;
+$font-margin-h2:             $font-margin-base;
+$font-margin-h1:             0 0 27px 0;
+// applications
+$font-margin-blockquote:     1em 40px;
+$font-margin-hgroup:         $font-margin-base;
+$font-margin-list:           $font-margin-base;
+$font-padding-list:          0 0 0 40px;
+$font-margin-dd:             0 0 0 40px;
+$font-padding-code:          0.2em 0.4em;
+$font-margin-code:           30px 0;
+
+
+// Font Family
+$font-family-sans-serif:     'plain', sans-serif;
+$font-family-sans:           $font-family-sans-serif;
+$font-family-serif:          'damien', serif;
+$font-family-monospace:      monospace;
+$font-family-compressed:     'sharp', sans-serif;
+// applications
+$font-family-base:           $font-family-sans;
+$font-family-body:           'Times New Roman', serif;
+$font-family-heading:        $font-family-sans;
+$font-family-branding:       sans-serif;
+
+
+// Font Weights
+$font-weight--thin:          100;
+$font-weight--light:         200;
+$font-weight--reg:           400;
+$font-weight--bold:          700;
+$font-weight--black:         900;
+
+// Tables
+// ------
+
+$table-margin:               35px;
+$table-padding:              0.5em 1em;
+$table-caption-padding:      0 0 10px;
+
+// Forms
+// -----
+
+$form-margin:                0;
+$form-legend-margin:         0 0 20px;
+$form-legend-padding:        0 0 4px;
+$form-fieldset-margin:       30px 0;
+$form-label-margin:          0.5em 0 0.2em;
+$form-row-margin:            0 0 10px;
+$form-input-margin:          0.25em 0;
+$form-input-padding:         0.5em 0.6em;
+$form-button-padding:        0.9em 15px;
+
+// Widths
+// ------
+
+$one-col:                    8.3333333333333%;
+$two-col:                    16.6666666666666%;
+$three-col:                  25%;
+$four-col:                   33.3333333333333%;
+$five-col:                   41.6666666666666%;
+$six-col:                    50%;
+$seven-col:                  58.3333333333333%;
+$eight-col:                  66.6666666666666%;
+$nine-col:                   75%;
+$ten-col:                    83.3333333333333%;
+$eleven-col:                 91.6666666666666%;
+$twelve-col:                 100%;
+
+// Margins
+// -------
+
+$spacing-xs:                 6px;
+$spacing-sm:                 12px;
+$spacing-md:                 18px;
+$spacing-lg:                 24px;
+$spacing-xl:                 36px;
+$spacing-xxl:                60px;
+$spacing-xxxl:               120px;
+$spacing-xxxxl:              160px;
+$grid-padding:               1.25vw;
+$grid-padding-mobile:        5vw;
+$spacing-row:                 -$grid-padding;
+
+
+// Breakpoints
+// -------
+
+// Generic
+$bp--mobile:                  300px;
+$bp--phablet:                 400px;
+$bp--tablet:                  600px;
+$bp--tablet-xl:               768px;
+$bp--desktop:                 1070px;
+$bp--desktop-xl:              1200px;
+$bp--desktop-xxl:             1500px;
+$bp--desktop-xxxl:            1700px;
+
+
+// z-index
+// -------
+
+$zIndex-0:                   0;
+$zIndex-1:                   10;
+$zIndex-2:                   20;
+$zIndex-3:                   30;
+$zIndex-4:                   40;
+$zIndex-5:                   50;
+$zIndex-6:                   60;
+$zIndex-7:                   70;
+$zIndex-8:                   80;
+$zIndex-9:                   90;
+$zIndex-10:                  100;
+
+// Timing
+// -------
+
+$timing:                     cubic-bezier(0.645,0.045,0.355,1);
+$timing-butter:              cubic-bezier(0.215, 0.61, 0.355, 1);

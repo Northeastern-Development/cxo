@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div class="archive-wrapper">
+  <h1 class="archive__title">{{ title }}</h1>
+
+  <section class="archive__posts">
+  {% for post in posts %}
+    {% include ['partials/teases/tease-'~post.post_type~'.twig', 'partials/teases/tease.twig'] with {context_class: 'tease-archive'} %}
+  {% endfor %}
+  </section>
+
+  {% include 'partials/wayfinding/pagination.twig' %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="page-wrapper">
+
+  <section class="page-body">
+
+    <div class="page__header">
+      <h1 class="page__title">{{ post.title }}</h1>
+    </div>
+
+    <div class="page__content article-text__content">
+      {{post.content}}
+    </div>
+
+  </section>
+
+  </div>
+{% endblock %}

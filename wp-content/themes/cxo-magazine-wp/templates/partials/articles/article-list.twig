@@ -1,0 +1,27 @@
+<section class="article-component article-list article-list--{{ content.layout }} article-list--{{ content.list_item|length }}">
+
+  <div class="article-list__header">
+
+    <h2 class="article-list__heading">{{ content.heading }}</h2>
+    <p class="article-list__caption">{{ content.caption }}</p>
+
+  </div>
+
+  <div class="article-list__content">
+
+    <ol class="article-list__listing">
+
+    {% for item in content.list_item %}
+      <li class="article-list__item">
+        <div class="article-list__item-inner">
+          <h3 class="article-list__item-heading">{{ item.item_heading }}</h3>
+          <div class="article-list__item-description">{{ item.item_description }}</div>
+        </div>
+      </li>
+    {% endfor %}
+
+    </ol>
+
+  </div>
+
+</section>

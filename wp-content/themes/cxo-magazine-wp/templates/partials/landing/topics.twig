@@ -1,0 +1,39 @@
+<div class="landing-about__topics js-topics">
+
+  <h2 class="landing-about__section-heading">What we’re talking about</h2>
+
+  <div class="landing-about__topics-list">
+
+    <div class="landing-topics-list--mobile js-topics-list-mobile">
+      <label class="visually-hidden" for="topics-list--select">Select a topic:</label>
+      <select name="select" class="landing-topics-list--select" id="topics-list--select">
+        {% for topic in topics %}
+          <option class="landing-topics-list-item--mobile" value="{{ topic.name }}" data-question="{{ topic.question }}">{{ topic.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <ul class="landing-topics-list js-topics-list">
+      {% for topic in topics %}
+        <li class="landing-topics-list-item">
+          <button type="button" tabindex="0" class="landing-topics-list-item--button js-topic-list-button {{ loop.first ? 'js-topic-list-button--active' : '' }}" data-question="{{ topic.question }}">{{ topic.name }}</button>
+        </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+
+  <div class="landing-about__topics-questions">
+
+    <p class="landing-topics-question__heading js-topic-question-heading">{{ topics.0.question }}</p>
+
+    <p class="landing-topics-question__vote">
+      <button type="button" class="landing-topics-question__vote--button js-topic-vote-button">
+        {% include "partials/svg/check.svg" %}
+        <span class="landing-topics-question__vote--button-text">I'm thinking about this, too.</span>
+      </button>
+    </p>
+
+  </div>
+
+</div>

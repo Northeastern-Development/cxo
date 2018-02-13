@@ -1,0 +1,45 @@
+{% block html_head_container %}
+
+{% include 'partials/html-header.twig' %}
+  {% block head %}
+  {% endblock %}
+  </head>
+{% endblock %}
+
+  <body class="{{body_class}} {{parent_class}} {{page_class}}" data-template="base.twig">
+    <div id="pjax-announce" aria-live="assertive" class="visually-hidden"></div>
+    <div id="pjax-container" class="wrapper" name="top">
+
+      {% block header %}
+        {% include 'partials/wayfinding/header-site.twig' %}
+      {% endblock %}
+
+      {% block menu %}
+      {% endblock %}
+
+      <section id="content" class="l--content" role="main">
+        {% block content %}
+          Sorry, there's no content here
+        {% endblock %}
+      </section>
+
+      {% block footer %}
+        <footer id="footer" class="l--footer">
+          {% include 'partials/wayfinding/footer.twig' %}
+        </footer>
+      {% endblock %}
+
+      <div class="loader">
+        <p class="visually-hidden">Loading...</p>
+        <span class="circle"></span>
+      </div>
+
+    </div>
+    {% include 'partials/subscribe/subscribe.twig' %}
+
+    {{ function('wp_footer') }}
+    {% include 'partials/analytics/quantcast.twig' %}
+    {% include 'partials/analytics/ga.twig' %}
+    {% include 'partials/analytics/twitter.twig' %}
+  </body>
+</html>

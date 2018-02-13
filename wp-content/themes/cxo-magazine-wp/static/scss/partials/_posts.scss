@@ -1,0 +1,182 @@
+// Posts
+// -------
+// Base styles for posts
+//
+// TOC:
+// 1. Latest Posts
+// 2. Post Header
+// 3. Post Content
+
+
+// 1. Post Layout
+// -------
+
+.post-wrapper {
+  background-color: $color-gray-f0;
+  background-image: linear-gradient(to bottom, $color-gray-f5, $color-gray-f0 100%);
+}
+
+.post-single {
+  @include grid-parent;
+  @include vertical-component;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+
+// 2. Post Header
+// -------
+
+.post__header {
+  margin-bottom: 25px;
+  position: relative;
+  z-index: $zIndex-2;
+
+  @include mq($bp--tablet-xl) {
+    display: flex;
+    margin-bottom: 35px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-bottom: 55px;
+  }
+}
+
+.post__topic {
+  @include grid-child;
+  margin-bottom: 15px;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 0;
+    width: $two-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-left: $one-col;
+  }
+}
+
+.post__header-titles {
+  @include grid-child;
+
+  @include mq($bp--tablet-xl) {
+    margin-right: $two-col;
+    width: $eight-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-right: $three-col;
+    width: $six-col;
+  }
+}
+
+.post__title {
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 16px 100px,
+    $max-sizes: 44px 2000px);
+  margin-bottom: 15px;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 25px;
+  }
+}
+
+.post__header-meta {
+  border-top: 1px solid $color-gray-d;
+  padding-top: 10px;
+
+  @include mq($bp--tablet-xl) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.post__byline {
+  color: $color-gray-8;
+  font-size: $font-size-xxxs;
+  margin-bottom: 3px;
+
+  @include mq($bp--tablet-xl) {
+    font-size: $font-size-xxs;
+  }
+}
+
+.post__byline-by {
+  color: $color-gray-a;
+}
+
+.post__byline-title {
+
+  &:before {
+    color: $color-gray-a;
+    content: '—';
+    opacity: .7;
+    padding-right: 5px;
+  }
+}
+
+.post__published {
+  color: $color-gray-8;
+  font-size: $font-size-xxxs;
+  margin-bottom: 3px;
+
+  @include mq($bp--tablet-xl) {
+    font-size: $font-size-xxs;
+    text-align: right;
+  }
+}
+
+.post__topic--link {
+  @include transition(color);
+  color: $color-gray-8;
+  display: block;
+  font-size: $font-size-xxs;
+  font-weight: $font-weight--bold;
+  text-transform: uppercase;
+
+  @include mq($bp--tablet-xl) {
+    @include font-con(24px, 60px);
+    margin-top: 5px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-top: 10px;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-gray-0b;
+  }
+}
+
+
+// 3. Post Content
+// -------
+
+.post__content {
+  font-family: $font-family-body;
+}
+
+// Images
+
+.post__image {
+  @include grid-child;
+  margin-bottom: 15px;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 25px;
+    margin-left: $two-col;
+    margin-right: $two-col;
+    width: $eight-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-bottom: 50px;
+    margin-left: $three-col;
+    margin-right: $three-col;
+    width: $six-col;
+  }
+}

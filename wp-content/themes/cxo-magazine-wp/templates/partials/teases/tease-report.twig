@@ -1,0 +1,21 @@
+{% extends "partials/teases/tease.twig" %}
+
+{% block body %}
+
+<a href="{{ post.link }}" class="base-tease-inner--link" {% if post_image %}style="background-image: url({{post_image}});"{% endif %}>
+
+  <div class="tease__header">
+    <div class="tease__header-titles">
+      <h1 class="tease__title">{{ post.title }}</h1>
+    </div>
+  </div>
+
+  <div class="tease__content">
+    <div class="tease__excerpt">
+      {{post.content|excerpt(40)}}
+    </div>
+  </div>
+
+</a>
+
+{% endblock %}

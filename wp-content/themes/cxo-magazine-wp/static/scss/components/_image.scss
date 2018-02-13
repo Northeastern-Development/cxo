@@ -1,0 +1,243 @@
+// Image
+// -------
+// Base styles for Image component
+//
+// TOC:
+// 1. Basic Layout
+
+
+// 1. Basic Layout
+// -------
+
+.article-image {
+
+  @include mq($bp--tablet-xl) {
+    align-items: flex-end;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.article-image__art {
+  @include grid-child;
+  margin-bottom: 12px;
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 0;
+  }
+}
+
+.article-image__caption {
+  @include grid-child;
+  width: 100%;
+}
+
+.article-image__caption--heading,
+.article-image__caption--text {
+  font-family: $font-family-sans;
+  color: $color-gray-9;
+  font-size: $font-size-xxs;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+.article-image__caption--heading {
+  font-weight: $font-weight--bold;
+  color: $color-black;
+}
+
+
+// Image default
+
+.article-image--default {
+
+  &.article-image {
+
+    @include mq($bp--tablet-xl) {
+      align-items: flex-end;
+    }
+  }
+
+  .article-image__art {
+
+    @include mq($bp--tablet-xl) {
+      margin-bottom: 0;
+      width: $ten-col;
+    }
+  }
+
+  .article-image__figure {
+
+    @include mq($bp--tablet-xl) {
+      margin-left: #{-$grid-padding};
+      margin-right: #{-$grid-padding};
+    }
+  }
+
+  .article-image__caption {
+
+    @include mq($bp--tablet-xl) {
+      width: $two-col;
+    }
+  }
+}
+
+
+// Image Full
+
+.article-image--full {
+
+  &.article-image {
+
+    @include mq($bp--tablet-xl) {
+      flex-direction: column;
+    }
+  }
+
+  .article-image__art {
+
+    @include mq($bp--tablet-xl) {
+      margin-bottom: 24px;
+    }
+  }
+
+  .article-image__figure {
+
+    @include mq($bp--tablet-xl) {
+      margin-left: #{-$grid-padding};
+      margin-right: #{-$grid-padding};
+    }
+  }
+
+  .article-image__caption {
+
+    @include mq($bp--tablet-xl) {
+      margin-left: $two-col;
+      margin-right: $two-col;
+      width: $eight-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-left: $three-col;
+      margin-right: $three-col;
+      width: $six-col;
+    }
+  }
+}
+
+
+// Image Column
+
+.article-image--column {
+
+  &.article-image {
+
+    @include mq($bp--tablet-xl) {
+      align-items: flex-end;
+    }
+  }
+
+  .article-image__art {
+
+    @include mq($bp--tablet-xl) {
+      margin-left: $two-col;
+      width: $eight-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-left: $three-col;
+      width: $six-col;
+    }
+  }
+
+  .article-image__caption {
+
+    @include mq($bp--tablet-xl) {
+      width: $two-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-right: $one-col;
+      width: $two-col;
+    }
+  }
+}
+
+
+// Image Left
+
+.article-image--left {
+
+  &.article-image {
+
+    @include mq($bp--tablet-xl) {
+      align-items: flex-end;
+    }
+  }
+
+  .article-image__art {
+
+    @include mq($bp--tablet-xl) {
+      width: $eight-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-left: $one-col;
+      width: $six-col;
+    }
+  }
+
+  .article-image__caption {
+
+    @include mq($bp--tablet-xl) {
+      margin-right: $two-col;
+      width: $two-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-right: $three-col;
+      width: $two-col;
+    }
+  }
+}
+
+
+// Image Left
+
+.article-image--right {
+
+  &.article-image {
+
+    @include mq($bp--tablet-xl) {
+      align-items: flex-end;
+    }
+  }
+
+  .article-image__art {
+
+    @include mq($bp--tablet-xl) {
+      order: 2;
+      width: $eight-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-right: $one-col;
+      width: $six-col;
+    }
+  }
+
+  .article-image__caption {
+
+    @include mq($bp--tablet-xl) {
+      order: 1;
+      margin-left: $two-col;
+      width: $two-col;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-left: $three-col;
+      width: $two-col;
+    }
+  }
+}

@@ -1,0 +1,139 @@
+// Pagination
+// -------
+// Base styles for Pagination
+//
+// TOC:
+// 1. Basic Layout
+
+
+// 1. Basic Layout
+// -------
+
+.archive-pagination {
+  @include grid-parent;
+  display: flex;
+}
+
+.archive-pagination__previous,
+.archive-pagination__next {
+  @include grid-child;
+  width: $six-col;
+}
+
+.archive-pagination__previous {
+  padding-right: 10px;
+
+  @include mq($bp--tablet-xl) {
+    padding-right: $grid-padding;
+  }
+}
+
+.archive-pagination__next {
+  padding-left: 10px;
+
+  @include mq($bp--tablet-xl) {
+    padding-left: $grid-padding;
+  }
+}
+
+.archive-pagination__disabled,
+.archive-pagination__link {
+  @include transition(color);
+  align-items: flex-end;
+  color: $color-gray-6;
+  display: flex;
+  flex-direction: column;
+
+  @include mq($bp--tablet-xl) {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .archive-pagination__next & {
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+}
+
+.archive-pagination__link {
+
+  &:hover,
+  &:focus {
+    color: $color-black;
+  }
+}
+
+.archive-pagination__disabled {
+  opacity: .3;
+  pointer-events: none;
+}
+
+.archive-pagination__text {
+  display: block;
+  font-size: $font-size-xxs;
+  font-weight: $font-weight--bold;
+  text-transform: uppercase;
+
+  .archive-pagination__previous & {
+
+    @include mq($bp--tablet-xl) {
+      padding-right: 10px;
+    }
+  }
+
+  .archive-pagination__next & {
+
+    @include mq($bp--tablet-xl) {
+      order: 2;
+      padding-left: 10px;
+    }
+  }
+}
+
+.archive-pagination__arrow {
+  align-items: center;
+  display: flex;
+  position: relative;
+  width: 100%;
+
+  &:before {
+    @include pseudo(50% 0 n 2px);
+    @include transition(background-color);
+    background-color: $color-gray-9;
+    height: 2px;
+    margin-top: -1px;
+  }
+
+  .archive-pagination__next &:before {
+    right: 2px;
+    left: 0;
+  }
+
+  .archive-pagination__next & {
+    justify-content: flex-end;
+  }
+
+  .archive-pagination__link:hover &:before,
+  .archive-pagination__link:focus &:before {
+    background-color: $color-black;
+  }
+}
+
+.svg__arrow-pagination {
+
+  > * {
+    @include transition(fill);
+    fill: $color-gray-9;
+  }
+
+  .archive-pagination__next & {
+    transform: rotateZ(180deg);
+  }
+
+  .archive-pagination__link:hover & > *,
+  .archive-pagination__link:focus & > * {
+    fill: $color-black;
+  }
+}
+
+

@@ -1,0 +1,15 @@
+<div class="landing-about__subscribe" id="subscribe">
+
+  <div class="landing-about__subscribe-copy">
+
+    {% include 'partials/svg/CXO-icon.svg' %}
+    <h2 class="landing-about__subscribe-headline">{{ page.get_field('subscribe_form').headline }}</h2>
+    <p class="landing-about__subscribe-description">{{ page.get_field('subscribe_form').description }}</p>
+
+  </div>
+
+  <div class="landing-about__subscribe-form">
+    {% include 'partials/subscribe/subscribe-form.twig' %}
+  </div>
+
+</div>

@@ -1,0 +1,32 @@
+{% set is_home = true %}
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="landing-wrapper" name="top" id='landing'>
+
+  <div class="landing-content">
+    {% include 'partials/landing/carousel.twig' %}
+
+    {% include 'partials/landing/articles.twig' %}
+
+    <section class="landing-about">
+
+      <div class="landing-about-inner">
+
+        {% include 'partials/subscribe/about-subscribe.twig' %}
+
+        {% include 'partials/landing/topics.twig' with { "topics" : page.get_field('topics') } %}
+
+        {% include 'partials/landing/manifesto.twig' %}
+
+      </div>
+
+    </section>
+
+  </div>
+
+</div>
+
+{% endblock %}
+

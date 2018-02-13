@@ -1,0 +1,61 @@
+// Image & Text
+// -------
+// Base styles for Text + Image component
+//
+// TOC:
+// 1. Basic Layout
+
+
+// 1. Basic Layout
+// -------
+
+.article-text-image {
+
+  @include mq($bp--tablet-xl) {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.article-text-image__art {
+  @include grid-child;
+  margin-bottom: 24px;
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 0;
+    width: $six-col;
+  }
+}
+
+.article-text-image__figure {
+
+  @include mq($bp--tablet-xl) {
+    margin-left: #{-$grid-padding};
+  }
+}
+
+.article-text-image__content {
+  @include grid-child;
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+    width: $six-col;
+  }
+
+  @include mq($bp--desktop-xxl) {
+    margin-right: $one-col;
+    margin-left: $one-col;
+    width: $four-col;
+  }
+
+  > p:first-of-type {
+    @include fluid-size(
+      $property: font-size,
+      $min-sizes: 18px 100px,
+      $max-sizes: 26px 2000px);
+    color: $color-black;
+    font-family: $font-family-serif;
+    line-height: 1.45;
+  }
+}

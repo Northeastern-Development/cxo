@@ -1,0 +1,33 @@
+{
+  "name": "cxo-magazine-wp",
+  "version": "1.0.0",
+  "main": "entry.js",
+  "author": "Upstatement <tech@upstatement.com>",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^7.1.6",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.18.13",
+    "critical": "^1.0.0",
+    "cssnano": "^3.10.0",
+    "flickity": "^2.0.10",
+    "global": "^4.3.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-modernizr": "^1.0.0-alpha",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^3.2.1",
+    "postcss": "^6.0.14",
+    "smoothstate": "git+https://github.com/miguel-perez/smoothState.js.git",
+    "ups-mixin-lib": "git+https://github.com/Upstatement/ups-mixin-lib.git",
+    "webpack": "^3.8.1",
+    "webpack-stream": "^4.0.0"
+  }
+}

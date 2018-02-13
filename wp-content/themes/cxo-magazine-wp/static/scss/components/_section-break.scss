@@ -1,0 +1,132 @@
+// Section Break
+// -------
+// Base styles for Section Break component
+//
+// TOC:
+// 1. Basic Layout
+
+
+// 1. Basic Layout
+// -------
+
+.article-section-break {
+
+  @include mq($bp--tablet-xl) {
+    align-items: flex-end;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &.article-component {
+    padding-top: 48px;
+    margin-bottom: 48px;
+
+    @include mq($bp--tablet-xl) {
+      padding-top: 60px;
+      margin-bottom: 60px;
+    }
+
+    @include mq($bp--desktop-xl) {
+      padding-top: 90px;
+      margin-bottom: 90px;
+    }
+
+    @include mq($bp--desktop-xxxl) {
+      padding-top: 120px;
+      margin-bottom: 120px;
+    }
+  }
+}
+
+.article-section-break__part,
+.article-section-break__title {
+  @include grid-child;
+
+  @include mq($bp--tablet-xl) {
+    width: $six-col;
+  }
+}
+
+.article-section-break__title {
+
+  @include mq($bp--tablet-xl) {
+    padding-bottom: 10px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    padding-bottom: 15px;
+  }
+}
+
+.article-section-break__part-number {
+  @include font-con(80px, 140px);
+  color: $color-gray-d;
+  margin-bottom: 10px;
+  text-align: center;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 0;
+    text-align: right;
+  }
+}
+
+.article-section-break__heading {
+  font-size: $font-size-md;
+  margin-bottom: 0;
+  text-align: center;
+
+  @include mq($bp--tablet-xl) {
+    font-size: $font-size-lg;
+    margin-right: $six-col;
+    line-height: 1.25;
+    text-align: left;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-right: $eight-col;
+  }
+}
+
+.svg__circle-divider-open {
+
+  .article-section-break & {
+    margin: 0 auto;
+
+    @include mq($bp--tablet-xl) {
+      @include absolute(n n n 50%);
+      margin-top: 0;
+      transform: translateX(-50%);
+    }
+  }
+
+  .article-section-break & > * {
+    fill: $color-gray-c;
+   }
+
+  &.circle-divider--bottom {
+    margin-top: 60px;
+
+    @include mq($bp--tablet-xl) {
+      bottom: 0;
+      margin-top: 0;
+    }
+  }
+
+  &.circle-divider--top {
+    display: none;
+    margin-bottom: 60px;
+
+    @include mq($bp--tablet-xl) {
+      margin-bottom: 0;
+      top: 0;
+    }
+  }
+}
+
+// Remove dots if first child
+.article-section-break:not(:first-child) {
+
+  .circle-divider--top {
+    display: block;
+  }
+}

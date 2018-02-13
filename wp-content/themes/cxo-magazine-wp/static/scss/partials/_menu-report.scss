@@ -1,0 +1,412 @@
+// Menu report
+// -------
+// Base styles for report Menu
+//
+// TOC:
+// 1. Basic Layout
+// 2. About
+// 3. Navigtion
+// 4. Site Nav
+
+
+// 1. Basic Layout
+// -------
+body.js-no-scroll {
+  overflow: hidden;
+}
+
+.menu-report {
+  @include fixed(0 0 n n);
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+
+  .js-menu-active & {
+    overflow-y: scroll;
+    width: 100%;
+    z-index: $zIndex-9;
+
+    @include mq($bp--tablet-xl) {
+      width: 50%;
+    }
+
+    @include mq($bp--desktop) {
+      width: 620px;
+    }
+  }
+}
+
+.menu-report-inner {
+  @include transition(transform, 500ms);
+  background-color: $color-white;
+  height: 100%;
+  opacity: 0;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  transform: translateX(100%);
+  transition-delay: 100ms;
+  z-index: $zIndex-9;
+
+  @include mq($bp--tablet-xl) {
+    background-color: $color-gray-f5;
+    display: flex;
+    height: 100%;
+    min-height: 100vh;
+  }
+
+  .js-menu-active & {
+    border-left: 1px solid $color-gray-f0;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+// 2. About
+// -------
+
+.menu-report__toc {
+  @include grid-parent;
+  background-color: $color-white;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+
+  @include mq($bp--tablet-xl) {
+    min-height: 100vh;
+    width: 440px;
+  }
+}
+
+.menu-report__about {
+  @include grid-child;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: relative;
+  z-index: 2;
+
+  @include mq($bp--tablet-xl) {
+    padding-top: 130px;
+    padding-bottom: 50px;
+    width: auto;
+  }
+
+  &:before {
+    @include pseudo(0 #{-$grid-padding} 0 #{-$grid-padding});
+    background-color: $color-white;
+  }
+}
+
+.menu-report__number {
+  color: $color-gray-9;
+  display: block;
+  font-size: $font-size-xxs;
+  font-weight: $font-weight--bold;
+  margin-bottom: 10px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.menu-report__topic {
+  @include font-con(50px, 100px);
+  color: $color-gray-0b;
+  margin-left: -.02em;
+  margin-bottom: 15px;
+  position: relative;
+
+  @include mq($bp--tablet-xl) {
+    align-self: flex-start;
+    margin-bottom: 0;
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
+.menu-report__description {
+  color: $color-gray-8;
+  font-size: $font-size-xxs;
+  position: relative;
+
+  > p {
+    color: $color-gray-8;
+    font-size: $font-size-xxs;
+  }
+
+  > p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+// 3. Navigation
+// -------
+
+.menu-report__posts {
+  @include grid-child;
+
+  @include mq($bp--tablet-xl) {
+    position: relative;
+    z-index: $zIndex-2;
+  }
+
+  &:before {
+    @include pseudo(0 #{-$grid-padding} 0 #{-$grid-padding});
+    background-color: $color-white;
+  }
+}
+
+.menu-report__posts-heading {
+  color: $color-gray-9;
+  font-family: $font-family-sans;
+  font-size: $font-size-xs;
+  font-weight: $font-weight--reg;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.menu-report__post-list {
+  @include ul-null;
+  padding-bottom: 15px;
+
+  @include mq($bp--tablet-xl) {
+    padding-bottom: 15px;
+  }
+
+  @include mq($bp--desktop) {
+    padding-bottom: 20px;
+  }
+
+  @include mq($bp--desktop-xxl) {
+    padding-bottom: 25px;
+  }
+}
+
+.menu-report__post-item {
+  @include increment-delay();
+  counter-increment: post-list;
+  line-height: 1.25;
+  margin-bottom: 0;
+  min-height: 3.5em;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  position: relative;
+
+  @include mq($bp--tablet-xl) {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: transform 600ms $timing-butter, opacity 700ms $timing-butter 100ms;
+  }
+
+  @include mq($bp--desktop) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  @include mq($bp--desktop-xxl) {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .js-menu-active & {
+
+    @include mq($bp--tablet-xl) {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  &:before {
+    @include absolute(17px n n 0);
+    @include font-con(40px, 40px);
+    color: $color-gray-a;
+    content:"0" counter(post-list);
+
+    @include mq($bp--tablet-xl) {
+      top: 17px;
+    }
+
+    @include mq($bp--desktop) {
+      top: 24px;
+    }
+
+    @include mq($bp--desktop-xxl) {
+      top: 30px;
+    }
+  }
+}
+
+.menu-report__post-item--link {
+  display: block
+}
+
+.menu-report__post-item--title {
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 16px 100px,
+    $max-sizes: 25px 2000px);
+  @include transition(box-shadow);
+  color: $color-gray-0b;
+  font-weight: $font-weight--bold;
+  line-height: 1.2;
+
+  .menu-report__post-item--link:hover &,
+  .menu-report__post-item--link:focus & {
+    box-shadow: inset 0 -.25em $color-yellow;
+  }
+
+  .menu-report__post-item--active & {
+    box-shadow: inset 0 -.25em $color-yellow;
+  }
+}
+
+.menu-report__post-item--subheading {
+  color: $color-gray-9;
+  display: block;
+  font-size: $font-size-xxs;
+  line-height: 1.5;
+  padding-top: 10px;
+}
+
+
+// 4. Site Nav
+// -------
+
+.menu-report__site-wrapper {
+  @include grid-parent;
+  background-color: $color-gray-f5;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  @include mq($bp--tablet-xl) {
+    height: 100%;
+    min-height: 100vh;
+    order: 2;
+    width: 180px;
+  }
+}
+
+.menu-report__site-wrapper-inner {
+  @include grid-child;
+  padding-top: 80px;
+  padding-bottom: 20px;
+
+  @include mq($bp--tablet-xl) {
+    padding-top: 0;
+    padding-bottom: 30px;
+    position: sticky;
+    top: 130px;
+  }
+
+  @include mq($bp--desktop-xxl) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.menu-report__site-nav {
+}
+
+.menu-report__site-nav-list {
+  @include ul-null;
+  margin-bottom: 0;
+  text-align: center;
+
+  @include mq($bp--tablet-xl) {
+    border-top: none;
+    text-align: left;
+  }
+}
+
+.menu-report__site-nav-list-item {
+  @include increment-delay();
+  @include transition;
+  display: inline-block;
+  font-size: $font-size-xxs;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: auto;
+
+  @include mq($bp--phablet) {
+    font-size: $font-size-xs;
+  }
+
+  @include mq($bp--tablet-xl) {
+    display: block;
+    line-height: 1.35;
+    margin: 0 0 20px;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: transform 600ms $timing-butter, opacity 700ms $timing-butter 100ms;
+  }
+
+  .js-menu-active & {
+
+    @include mq($bp--tablet-xl) {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.menu-report__site-nav-list-item--link {
+  @include transition;
+  color: $color-gray-6;
+  box-shadow: inset 0 -1px $color-sky;
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 -.25em $color-sky;
+  }
+}
+
+.menu-report__subscribe {
+  margin-bottom: 0;
+  text-align: center;
+
+  @include mq($bp--tablet-xl) {
+    margin-top: 25px;
+    opacity: 0;
+    text-align: left;
+  }
+
+  .js-menu-active & {
+
+    @include mq($bp--tablet-xl) {
+      opacity: 1;
+      transition: opacity 1300ms $timing-butter 800ms;
+    }
+  }
+}
+
+.menu-report__subscribe--button {
+  @include reset-input;
+  background-color: $color-slate;
+  color: $color-white;
+  cursor: pointer;
+  display: block;
+  font-size: $font-size-xxxs;
+  font-weight: $font-weight--bold;
+  letter-spacing: .05em;
+  margin: 10px auto 0;
+  line-height: 1;
+  padding: 12px 20px 13px 20px;
+  text-transform: uppercase;
+  width: auto;
+
+  @include mq($bp--tablet-xl) {
+    @include transition(background-color color);
+    margin: 0;
+    padding: 10px 15px 12px 15px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-gray-0b;
+    color: $color-white;
+  }
+}

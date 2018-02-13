@@ -1,0 +1,39 @@
+// Base CxO
+// -------
+// Base styles for CxO landing page.
+//
+// TOC:
+// 1. Base Layout
+// 9. Animations
+// 10. Utilities
+
+
+// 1. Base Layout
+// -------
+
+.wrapper {
+
+  .page-template-template-landing & {
+    background-color: $color-black;
+  }
+}
+
+.landing-wrapper {
+  background-color: $color-black;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-content {
+  animation: itemTransitionIn 600ms $timing-butter 1200ms;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.landing-content-inner {
+  @include grid-child;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  width: 50%;
+}

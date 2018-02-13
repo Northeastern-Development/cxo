@@ -1,0 +1,210 @@
+// Poll
+// -------
+// Base styles for Poll component
+//
+// TOC:
+// 1. Basic Layout
+
+
+// 1. Basic Layout
+// -------
+
+.article-component {
+  @include grid-parent;
+  @include vertical-component;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  & + & {
+    padding-top: 0;
+  }
+}
+
+.article-end {
+  @include grid-parent;
+  @include vertical-component;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 0;
+
+  @include mq($bp--tablet-xl) {
+    padding-bottom: 0;
+  }
+
+  @include mq($bp--desktop-xl) {
+    padding-bottom: 0;
+  }
+
+  @include mq($bp--desktop-xxxl) {
+    padding-bottom: 0;
+  }
+}
+
+.article-end__text {
+  color: $color-gray-9;
+  display: block;
+  font-family: $font-family-sans;
+  font-size: $font-size-xxs;
+  font-weight: $font-weight--bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 20px;
+  }
+}
+
+.svg__circle-divider-end {
+
+  .article-end & {
+    overflow: visible;
+  }
+}
+
+.circle-divider--left {
+  transform: translateX(-10px);
+
+  animation: leftTransition 4000ms $timing-butter;
+  animation-iteration-count: infinite;
+}
+
+.circle-divider--right {
+  transform: translateX(10px);
+
+  animation: rightTransition 4000ms $timing-butter;
+  animation-iteration-count: infinite;
+}
+
+.circle-divider--center {
+
+  animation: centerTransition 4000ms $timing-butter;
+  animation-iteration-count: infinite;
+}
+
+@keyframes leftTransition {
+  0% {
+    opacity: 0;
+    fill: #B0B6B7;
+    transform: translateX(-30px) translateY(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+    fill: #B0B6B7;
+    transform: translateX(-10px) translateY(0);
+  }
+  40% {
+    opacity: 1;
+    fill: #B0B6B7;
+    transform: translateX(-10px) translateY(0);
+  }
+  60% {
+    opacity: 1;
+    fill: #000;
+    transform: translateX(-10px) translateY(10px);
+  }
+  80% {
+    opacity: 1;
+    fill: #000;
+    transform: translateX(-10px) translateY(10px);
+  }
+  90% {
+    opacity: 0;
+    fill: #000;
+    transform: translateX(-10px) translateY(10px);
+  }
+  100% {
+    opacity: 0;
+    fill: #000;
+    transform: translateX(-10px) translateY(10px);
+  }
+}
+
+@keyframes rightTransition {
+  0% {
+    opacity: 0;
+    fill: #B0B6B7;
+    transform: translateX(30px) translateY(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+    fill: #B0B6B7;
+    transform: translateX(10px) translateY(0);
+  }
+  40% {
+    opacity: 1;
+    fill: #B0B6B7;
+    transform: translateX(10px) translateY(0);
+  }
+  60% {
+    opacity: 1;
+    fill: #000;
+    transform: translateX(10px) translateY(10px);
+  }
+  80% {
+    opacity: 1;
+    fill: #000;
+    transform: translateX(10px) translateY(10px);
+  }
+  90% {
+    opacity: 0;
+    fill: #000;
+    transform: translateX(10px) translateY(10px);
+  }
+  100% {
+    opacity: 0;
+    fill: #000;
+    transform: translateX(10px) translateY(10px);
+  }
+}
+
+@keyframes centerTransition {
+  0% {
+    fill: #B0B6B7;
+    opacity: 0;
+    transform: translateY(0);
+  }
+  10% {
+    fill: #B0B6B7;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  30% {
+    fill: #B0B6B7;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  40% {
+    fill: #B0B6B7;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    fill: #000;
+    opacity: 1;
+    transform: translateY(25px);
+  }
+  80% {
+    fill: #000;
+    opacity: 1;
+    transform: translateY(25px);
+  }
+  90% {
+    fill: #000;
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    fill: #000;
+    opacity: 0;
+    transform: translateY(25px);
+  }
+}

@@ -1,0 +1,199 @@
+// Subscribe
+// -------
+// Form styles for the Mailchimp email subscribe form
+//
+// TOC:
+// 1. Subscribe
+// 2. Close
+
+
+// 1. Subscribe
+// -------
+
+body {
+
+  &.js-subscribe-active {
+    overflow: hidden;
+  }
+}
+
+.subscribe-wrapper {
+  @include fixed(0 0 0 0);
+  background-color: rgba($color-black, 0);
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+
+  .js-subscribe-active & {
+    background-color: rgba($color-black, 0.5);
+    opacity: 1;
+    z-index: 9999;
+  }
+}
+
+.subscribe-body {
+  @include grid-parent;
+  height: 100%;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}
+
+.subscribe-body-inner {
+  position: relative;
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+    display: flex;
+  }
+}
+
+.subscribe-body__copy,
+.subscribe-body__form {
+  @include grid-child;
+  @include transition(opacity transform, 500ms);
+  opacity: 0;
+  padding: 30px $grid-padding-mobile;
+  transform: translateY(15%);
+  transition-delay: 150ms;
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50vh;
+    min-width: 50%;
+    width: 50%;
+  }
+
+  @include mq($bp--desktop-xl) {
+    min-width: $five-col;
+    width: $five-col;
+  }
+
+  .js-subscribe-active & {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.subscribe-body__copy {
+  background-color: $color-white;
+
+  @include mq($bp--desktop-xl) {
+    margin-left: $one-col;
+  }
+}
+
+.subscribe-body__copy-inner {
+
+  @include mq($bp--tablet-xl) {
+    width: 65%;
+  }
+
+  @include mq($bp--desktop-xl) {
+    width: 70%;
+  }
+}
+
+.subscribe-body__headline {
+  font-size: $font-size-md;
+
+  @include mq($bp--tablet-xl) {
+    font-size: $font-size-xl;
+  }
+}
+
+.subscribe-body__description {
+  font-size: $font-size-xxs;
+  margin-bottom: 0;
+
+  @include mq($bp--tablet-xl) {
+    font-size: $font-size-xs;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-left: 30%;
+  }
+}
+
+.subscribe-body__form {
+  background-image: linear-gradient(-45deg, #4096F3 0%, #1C0CAE 100%);
+
+  @include mq($bp--desktop-xl) {
+    margin-right: $one-col;
+  }
+
+  .newsletter-form {
+
+    @include mq($bp--tablet-xl) {
+      width: 65%;
+    }
+
+    @include mq($bp--desktop-xl) {
+      width: 70%;
+    }
+  }
+}
+
+
+// 2. Close
+// -------
+
+.subscribe-close {
+  @include absolute(n 0 100% n);
+  @include transition(opacity transform, 500ms);
+  opacity: 0;
+  transform: translateY(25px);
+  transition-delay: 300ms;
+
+  @include mq($bp--desktop-xl) {
+    right: $one-col;
+    transform: translateY(50px);
+  }
+
+  .js-subscribe-active & {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.subscribe-close__button {
+  @include reset-input;
+  @include transition(background-color color);
+  background-color: $color-white;
+  color: $color-black;
+  display: block;
+  padding: 0;
+
+  &:hover,
+  &:focus {
+    background-color: $color-black;
+    color: $color-white;
+    cursor: pointer;
+  }
+}
+
+.subscribe-close__button--text {
+  cursor: pointer;
+  display: block;
+  font-size: $font-size-xxs;
+  font-weight: $font-weight--bold;
+  letter-spacing: 0.1em;
+  padding: 6px 14px 7px;
+  text-transform: uppercase;
+
+  @include mq($bp--tablet-xl) {
+    padding: 8px 18px;
+  }
+}

@@ -1,0 +1,249 @@
+// Header Site
+// -------
+// Base styles for Site Header
+//
+// TOC:
+// 1. Basic Layout
+// 2. Branding
+// 3. Header Navigation
+
+
+// 1. Basic Layout
+// -------
+
+.header-site {
+  @include fixed(0 0 n 0);
+  background-color: $color-black;
+  height: 60px;
+  width: 100%;
+  z-index: 102;
+
+  @include mq($bp--tablet-xl) {
+    height: 70px;
+  }
+}
+
+
+// 2. Branding
+// -------
+
+.header-site__branding {
+  @include absolute(11px n n $grid-padding-mobile);
+  margin-bottom: 0;
+  z-index: $zIndex-2;
+
+  @include mq($bp--tablet-xl) {
+    align-items: center;
+    display: flex;
+    left: #{$grid-padding};
+    top: 12px;
+  }
+}
+
+.cxo-magazine-logo--svg {
+
+  .header-site__branding & {
+    display: block;
+    height: 40px;
+    width: auto;
+    margin-right: 15px;
+
+    @include mq($bp--tablet-xl) {
+      height: 46px;
+      width: 99px;
+    }
+  }
+}
+
+.header-site__tagline {
+  color: $color-white;
+  display: none;
+  margin-bottom: 0;
+
+  @include mq($bp--desktop) {
+    color: $color-gray-b;
+    display: block;
+    font-size: $font-size-xxs;
+    line-height: 1;
+  }
+}
+
+.header-site__byline {
+  color: $color-white;
+  font-size: $font-size-xxxs;
+  line-height: 34px;
+  margin-bottom: 0;
+  order: 3;
+  text-align: center;
+
+  @include mq($bp--tablet-xl) {
+    color: $color-gray-b;
+    margin-right: 10px;
+    order: 1;
+    text-align: left;
+  }
+
+  @include mq($bp--desktop) {
+    font-size: $font-size-xxs;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-right: 15px;
+  }
+}
+
+
+// 3. Header Navigation
+// -------
+
+.header-site__navigation {
+  background-color: $color-black;
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  overflow: hidden;
+  padding-left: $grid-padding-mobile;
+  padding-right: $grid-padding-mobile;
+  position: relative;
+  z-index: $zIndex-1;
+
+  .js-menu-active & {
+    max-height: 400px;
+    padding-top: 90px;
+    padding-bottom: 30px;
+
+    @include mq($bp--tablet-xl) {
+      max-height: none;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  @include mq($bp--tablet-xl) {
+    @include absolute(16px #{$grid-padding} n n);
+    align-items: center;
+    flex-direction: row;
+    padding-top: 0;
+    max-height: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.header-site__nav {
+  order: 1;
+
+  @include mq($bp--tablet-xl) {
+    order: 2;
+  }
+}
+
+.header-site__nav-list {
+  @include ul-null;
+  margin-bottom: 15px;
+
+  @include mq($bp--tablet-xl) {
+    margin-bottom: 0;
+  }
+}
+
+.header-site__nav-list-item {
+  @include increment-delay();
+  @include transition;
+  display: block;
+  font-size: $font-size-md;
+  line-height: 60px;
+  opacity: 0;
+  text-align: center;
+  transform: translateY(-1em);
+  vertical-align: middle;
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+    @include increment-delay(0s, 10);
+    display: inline-block;
+    font-size: $font-size-xs;
+    line-height: 34px;
+    margin-left: 10px;
+    margin-right: 10px;
+    opacity: 1;
+    text-align: left;
+    transform: translateY(0);
+    transition: all 0s linear;
+    width: auto;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .js-menu-active & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-site__nav-list-item--link {
+  @include transition;
+  color: $color-white;
+  box-shadow: inset 0 -1px $color-slate;
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 -.25em $color-sky;
+  }
+}
+
+.header-site__subscribe {
+  order: 2;
+  margin-bottom: 0;
+  text-align: center;
+
+  @include mq($bp--tablet-xl) {
+    margin-left: 10px;
+    order: 3;
+    text-align: left;
+  }
+
+  @include mq($bp--desktop-xl) {
+    margin-left: 15px;
+  }
+}
+
+.header-site__subscribe--button {
+  @include reset-input;
+  background-color: $color-slate;
+  color: $color-white;
+  cursor: pointer;
+  display: block;
+  font-size: $font-size-xxxs;
+  font-weight: $font-weight--bold;
+  letter-spacing: .05em;
+  margin-bottom: 15px;
+  line-height: 1;
+  padding: 15px 20px 17px 20px;
+  text-transform: uppercase;
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+    @include transition(background-color color);
+    margin-bottom: 0;
+    padding: 10px 15px 12px 15px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color-white;
+    color: $color-gray-0b;
+  }
+}
+
+.header__toggle--site {
+  display: block;
+  z-index: $zIndex-2;
+
+  @include mq($bp--tablet-xl) {
+    display: none;
+  }
+}

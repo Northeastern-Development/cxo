@@ -1,0 +1,22 @@
+<header class="header-report">
+
+  <div class="header-report__branding">
+    <a href="/" class="header-report__branding--link">
+      {% include 'partials/svg/logo-cxo-magazine.svg' %}
+    </a>
+    <p class="header-site__byline">Published by Northeastern University</p>
+  </div>
+
+  <div class="header__toggle header__toggle--report">
+
+    <div class="header-report__toggle">
+      <span class="header__toggle-icon"></span>
+      <div class="header__toggle-report">
+        <span class="header-report__number">CXO report</span>
+        <span class="header-report__topic">{{ post.report.post_title }}</span>
+      </div>
+      <span class="header__toggle-close">Close menu</span>
+    </div>
+  </div>
+
+</header>

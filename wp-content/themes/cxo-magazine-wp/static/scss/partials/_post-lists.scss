@@ -1,0 +1,181 @@
+// Post Lists
+// -------
+// Base styles for post lists
+//
+// TOC:
+// 1. Latest Posts
+
+
+// 1. Latest Posts
+// -------
+
+.latest-posts {
+  @include grid-parent;
+  @include vertical-component;
+  background-image: linear-gradient(to bottom, $color-gray-f0, $color-gray-f5 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+// Listing
+
+.latest-posts__listing {
+  padding-top: 30px;
+  position: relative;
+
+  @include mq($bp--tablet-xl) {
+    padding-top: 60px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    padding-top: 90px;
+    padding-left: $one-col;
+    padding-right: $one-col;
+  }
+
+  &:before {
+    @include pseudo(0 0 n 0);
+    background-color: $color-gray-d;
+    border-radius: 3px;
+    height: 3px;
+
+    @include mq($bp--tablet-xl) {
+      left: #{$grid-padding};
+      right: #{$grid-padding};
+    }
+
+    @include mq($bp--desktop-xl) {
+      left: calc(#{$grid-padding} + #{$one-col});
+      right: calc(#{$grid-padding} + #{$one-col});
+    }
+  }
+}
+
+.latest-posts__post-list {
+  @include ul-null;
+
+  @include mq($bp--tablet-xl) {
+    align-items: flex-end;
+    display: flex;
+  }
+
+  .base-tease {
+    @include grid-child;
+    margin-bottom: 20px;
+
+    @include mq($bp--tablet-xl) {
+      margin-bottom: 0;
+      overflow: hidden;
+      width: $three-col;
+    }
+
+    @include mq($bp--desktop) {
+      width: 30%;
+    }
+
+    &:first-child {
+
+      @include mq($bp--tablet-xl) {
+        width: $six-col;
+      }
+
+      @include mq($bp--desktop) {
+        width: 40%;
+      }
+    }
+  }
+}
+
+.latest-posts__post-category {
+  font-size: $font-size-xxs;
+  font-weight: $font-weight--bold;
+  line-height: 1;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.latest-posts__post-category--link {
+  @include transition;
+  color: $color-plum;
+
+  &:hover,
+  &:focus {
+    color: $color-gray-0b;
+  }
+}
+
+.latest-posts__post-title {
+  color: $color-gray-0b;
+  display: block;
+  font-family: $font-family-sans;
+  font-size: $font-size-sm;
+  margin-bottom: 10px;
+
+  .base-tease:first-child & {
+
+    @include mq($bp--tablet-xl) {
+      font-size: 44px;
+      line-height: 1.2;
+    }
+  }
+
+  &:after {
+    @include transition;
+    color: $color-plum;
+    content: "→";
+    font-weight: $font-weight--reg;
+    opacity: 0;
+    padding-left: .15em;
+  }
+
+  .latest-posts__post-item--link:hover &:after,
+  .latest-posts__post-item--link:focus &:after{
+    opacity: 1;
+    padding-left: .45em;
+  }
+}
+
+.latest-posts__post-description {
+  color: $color-gray-6;
+  font-size: $font-size-xxs;
+  margin-bottom: 0;
+
+  .base-tease:first-child & {
+
+    @include mq($bp--tablet-xl) {
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+// View all
+
+.latest-posts__view-all {
+  @include grid-child;
+  margin-bottom: 0;
+
+  @include mq($bp--tablet-xl) {
+    @include absolute(60px 0 n n);
+  }
+
+  @include mq($bp--desktop-xl) {
+    right: $one-col;
+    top: 90px;
+  }
+}
+
+.latest-posts__view-all--link {
+  @include transition;
+  box-shadow: inset 0 -1px $color-gray-b;
+  color: $color-gray-8;
+  font-size: $font-size-xxxs;
+  font-weight: $font-weight--bold;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 -.25em $color-yellow;
+    color: $color-gray-0b;
+  }
+}

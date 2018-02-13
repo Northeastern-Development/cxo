@@ -1,0 +1,42 @@
+<div class="footer-inner">
+
+  <div class="footer-bylines">
+    <p class="footer-builtby__text">Published by <a href="http://northeastern.edu" class="footer-builtby__text--link" target="_blank">Northeastern University</a></p>
+    <p class="footer-contact">
+      <a href="mailto:editor@cxo-magazine.com" class="footer-contact--link">Contact Us</a>
+    </p>
+  </div>
+
+  <div class="footer-follow">
+    {% set follow = options.footer_social_links %}
+    {% if follow|length > 0 %}
+    <ul class="footer-follow__list">
+      {% if follow.twitter_link %}
+      <li class="footer-follow__list-item footer-follow__list-item--twitter">
+        <a href="{{ follow.twitter_link }}" class="footer-follow__list-item--link" target="_blank">
+          <span class="footer-follow__list-item--text visually-hidden">Twitter</span>
+          {% include 'partials/svg/twitter.svg' %}
+        </a>
+      </li>
+      {% endif %}
+      {% if follow.linkedin_link %}
+      <li class="footer-follow__list-item footer-follow__list-item--linkedin">
+        <a href="{{ follow.linkedin_link }}" class="footer-follow__list-item--link" target="_blank">
+          <span class="footer-follow__list-item--text visually-hidden">linkedin</span>
+          {% include 'partials/svg/linkedin.svg' %}
+        </a>
+      </li>
+      {% endif %}
+      {% if follow.facebook_link %}
+      <li class="footer-follow__list-item footer-follow__list-item--facebook">
+        <a href="{{ follow.facebook_link }}" class="footer-follow__list-item--link" target="_blank">
+          <span class="footer-follow__list-item--text visually-hidden">facebook</span>
+          {% include 'partials/svg/facebook.svg' %}
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+    {% endif %}
+  </div>
+
+</div>

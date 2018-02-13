@@ -1,0 +1,384 @@
+// Video
+// -------
+// Base styles for Video component
+//
+// TOC:
+// 1. Basic Layout
+// 2. Simple Layout
+// 3. Full Layout
+
+
+// 1. Basic Layout
+// -------
+
+.article-video {
+  @include vertical-component-null;
+  padding-bottom: 48px;
+
+  @include mq($bp--tablet-xl) {
+    padding-bottom: 60px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    padding-bottom: 90px;
+  }
+
+  @include mq($bp--desktop-xxxl) {
+    padding-bottom: 120px;
+  }
+}
+
+.article-video-inner {
+  background-image: linear-gradient(to bottom left, $color-gray-0, #024551 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.article-video__still {
+  @include grid-child;
+  margin-bottom: 24px;
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+    @include absolute(0);
+    margin-bottom: 0;
+  }
+}
+
+.article-video__figure {
+  @include grid-child;
+
+  @include mq($bp--tablet-xl) {
+    @include absolute(48px #{$grid-padding} 48px #{$three-col});
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+    overflow: hidden;
+    z-index: $zIndex-1;
+  }
+
+  @include mq($bp--desktop-xl) {
+    top: 60px;
+    bottom: 60px;
+  }
+}
+
+.article-video__img {
+
+  @include mq($bp--tablet-xl) {
+    @include absolute(0 n 0 50%);
+    height: 100%;
+    max-width: none;
+    transform: translateX(-50%);
+    width: auto;
+  }
+}
+
+.article-video__caption {
+  width: 100%;
+
+  @include mq($bp--tablet-xl) {
+    display: flex;
+  }
+}
+
+.article-video__caption-header {
+  @include grid-child;
+  position: relative;
+}
+
+.article-video__caption-heading {
+  @include font-con(40px, 140px);
+  color: $color-white;
+  display: block;
+  margin-bottom: -.1em;
+  position: relative;
+}
+
+.article-video__caption-description {
+  @include grid-child;
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 12px 100px,
+    $max-sizes: 18px 2000px);
+  color: $color-gray-a;
+  font-family: $font-family-sans;
+  line-height: 1.35;
+  margin-bottom: 0;
+  margin-top: 25px;
+
+  &:before {
+    color: $color-white;
+    content: "Video";
+    display: block;
+    font-weight: $font-weight--bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.article-video__embed {
+  position: relative;
+  z-index: $zIndex-4;
+}
+
+.article-video__embed-inner {
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+
+  iframe {
+    @include absolute(0 n n 0);
+    @include size(100%);
+  }
+}
+
+
+// 2. Simple Layout
+// -------
+
+.article-video--simple {
+
+  .article-video-inner {
+    @include vertical-component;
+    padding-left: #{$grid-padding-mobile * .5};
+    padding-right: #{$grid-padding-mobile * .5};
+
+    @include mq($bp--tablet-xl) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .article-video__still,
+  .svg__play-button {
+    display: none;
+  }
+
+  .article-video__embed {
+    @include grid-child;
+    margin-bottom: 25px;
+
+    @include mq($bp--tablet-xl) {
+      margin-right: $one-col;
+      margin-left: $one-col;
+      margin-bottom: 0;
+      order: 2;
+      width: $ten-col;
+    }
+
+    @include mq($bp--desktop) {
+      margin-left: $one-col;
+      margin-right: $three-col;
+      width: $eight-col;
+    }
+
+    @include mq($bp--desktop-xxl) {
+      margin-left: $one-col;
+      margin-right: $five-col;
+      width: $six-col;
+    }
+  }
+
+  .article-video__caption {
+
+    @include mq($bp--tablet-xl) {
+      align-items: flex-end;
+      margin-bottom: 30px;
+      order: 1;
+    }
+
+    @include mq($bp--desktop) {
+      margin-bottom: 45px;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-bottom: 60px;
+    }
+  }
+
+  .article-video__caption-header {
+
+    @include mq($bp--tablet-xl) {
+      margin-left: $one-col;
+      margin-right: $one-col;
+      width: $six-col;
+    }
+  }
+
+  .article-video__caption-description {
+
+    @include mq($bp--tablet-xl) {
+      margin-right: $one-col;
+      width: $three-col;
+    }
+
+    &:after {
+
+      @include mq($bp--tablet-xl) {
+        @include pseudo(0 n 0 n);
+        background-color: rgba($color-white, 0.2);
+        margin-left: -#{$grid-padding};
+        width: 1px;
+        z-index: $zIndex-1;
+      }
+    }
+  }
+}
+
+
+// 3. Full Layout
+// -------
+
+.article-video--full {
+
+  .article-video-inner {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: #{$grid-padding-mobile * .5};
+    padding-right: #{$grid-padding-mobile * .5};
+
+    @include mq($bp--tablet-xl) {
+      align-items: stretch;
+      flex-direction: row;
+      flex-wrap: wrap;
+      min-height: 80vh;
+      padding-top: 48px;
+      padding-bottom: 48px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    @include mq($bp--desktop-xl) {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+
+  .article-video-inner:before {
+    @include pseudo(0);
+    @include transition(background-color);
+    background-color: rgba($color-black, 0);
+    z-index: -1;
+  }
+
+  &.js-video-active .article-video-inner:before {
+    background-color: rgba($color-black, 0.5);
+    z-index: $zIndex-3;
+  }
+
+  &.js-video-active:hover {
+    cursor: url('../../img/cursors/close-video.png') 30 30, default;
+  }
+
+  .article-video__caption {
+    position: relative;
+    z-index: $zIndex-2;
+
+    @include mq($bp--tablet-xl) {
+      flex-wrap: wrap;
+    }
+
+    &:hover {
+      cursor: pointer;
+      cursor: url('../../img/cursors/play-video.png') 30 30, default;
+    }
+  }
+
+  .article-video__caption-header {
+
+    @include mq($bp--tablet-xl) {
+      align-self: flex-end;
+      margin-right: $six-col;
+      order: 2;
+    }
+
+    @include mq($bp--desktop-xl) {
+      margin-right: $seven-col;
+    }
+  }
+
+  .article-video__caption-heading {
+    padding-left: 60px;
+
+    @include mq($bp--tablet-xl) {
+      padding-left: 0;
+    }
+  }
+
+  .article-video__caption-description {
+
+    @include mq($bp--tablet-xl) {
+      align-self: flex-start;
+      margin-top: 0;
+      margin-right: $nine-col;
+      margin-bottom: 25px;
+      order: 1;
+    }
+
+    &:before {
+      @include absolute(0 n n 0);
+
+      @include mq($bp--tablet-xl) {
+        position: relative;
+      }
+    }
+  }
+
+  .article-video__embed {
+    @include absolute(0);
+    display: none;
+  }
+
+  &.js-video-active .article-video__embed {
+    align-items: center;
+    display: flex;
+  }
+
+  .article-video__embed-inner {
+    @include grid-child;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    margin-left: $grid-padding-mobile;
+    margin-right: $grid-padding-mobile;
+    width: calc(100% - (#{$grid-padding-mobile * 2}));
+    z-index: $zIndex-4;
+
+    @include mq($bp--tablet-xl) {
+      margin-left: $two-col;
+      margin-right: $two-col;
+      padding-bottom: #{56.25% * .6666666666666};
+      width: $eight-col;
+    }
+
+    @include mq($bp--desktop-xxl) {
+      margin-left: $three-col;
+      margin-right: $three-col;
+      padding-bottom: #{56.25% * .5};
+      width: $six-col;
+    }
+
+    iframe {
+      @include absolute(0 n n 0);
+      @include size(100%);
+      z-index: $zIndex-5;
+    }
+  }
+
+  .svg__play-button {
+    @include absolute(24px n n 0);
+    @include size(40px);
+
+    @include mq($bp--tablet-xl) {
+      @include size(96px);
+      align-self: flex-end;
+      margin-bottom: 24px;
+      position: relative;
+      top: auto;
+    }
+  }
+}

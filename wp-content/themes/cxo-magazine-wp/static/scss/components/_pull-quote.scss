@@ -1,0 +1,105 @@
+// Pull Quote
+// -------
+// Base styles for Pull Quote component
+//
+// TOC:
+// 1. Basic Layout
+
+
+// 1. Basic Layout
+// -------
+
+.article-pull-quote {
+
+  .article-section-break + &,
+  & + .article-section-break {
+    margin-top: 24px;
+
+    @include mq($bp--desktop) {
+      margin-top: 48px;
+    }
+  }
+}
+
+.article-pull-quote-inner {
+  background-image: linear-gradient(to bottom, $color-gray-f0, $color-gray-f5 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+
+  @include mq($bp--tablet-xl) {
+    justify-content: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  @include mq($bp--desktop-xl) {
+    min-height: 50vh;
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+}
+
+.article-pull-quote__blockquote {
+  @include grid-child;
+  @include fluid-size(
+    $property: font-size,
+    $min-sizes: 22px 100px,
+    $max-sizes: 44px 2000px);
+  color: $color-black;
+  font-family: $font-family-serif;
+  line-height: 1.45;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  z-index: $zIndex-2;
+
+  @include mq($bp--tablet-xl) {
+    width: $ten-col;
+  }
+
+  @include mq($bp--desktop-xl) {
+    width: $eight-col;
+  }
+
+  > p:before {
+    content: "“";
+    padding-right: 5px;
+  }
+
+  > p:after {
+    content: "”";
+  }
+}
+
+.article-pull-quote__attribution {
+  @include grid-child;
+  margin: 0 auto;
+  padding-top: 18px;
+  position: relative;
+  text-align: center;
+  z-index: $zIndex-2;
+
+  @include mq($bp--tablet-xl) {
+    padding-top: 30px;
+    width: $six-col;
+  }
+
+  @include mq($bp--desktop-xxl) {
+    padding-top: 48px;
+  }
+}
+
+.article-pull-quote__attribution--name {
+  @include font-con(40px, 70px);
+  color: $color-gray-7;
+  display: block;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.article-pull-quote__attribution--title {
+  color: $color-gray-9;
+  display: block;
+  font-family: $font-family-sans;
+}

@@ -1,0 +1,37 @@
+<section class="article-component article-qa">
+
+  <div class="article-qa__question">
+
+    <p class="article-qa__question-text">{{ content.question }}</p>
+
+  </div>
+
+  <div class="article-qa__answers">
+
+    <ul class="article-qa__answer-list article-qa__answer-list--{{ content.response|length }}">
+
+    {% for item in content.response %}
+      <li class="article-qa__answer-item">
+
+        <div class="article-qa__answer-photo">
+          <figure class="article-qa__answer-figure">
+            {% set image = TimberImage(item.thumbnail) %}
+            <img src="{{ image.src }}" alt="{{ image.alt }}"class="article-qa__answer-img">
+          </figure>
+        </div>
+
+        <div class="article-qa__answer-person">
+          <h3 class="article-qa__answer-name">{{ item.name }}</h3>
+          <p class="article-qa__answer-person-title">{{ item.title }}</p>
+        </div>
+
+        <div class="article-qa__answer-response">{{ item.answer }}</div>
+
+      </li>
+    {% endfor %}
+
+    </ul>
+
+  </div>
+
+</section>

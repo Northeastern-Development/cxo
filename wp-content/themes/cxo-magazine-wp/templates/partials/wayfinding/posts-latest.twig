@@ -1,0 +1,17 @@
+<section class="latest-posts">
+
+  <div class="latest-posts__listing">
+
+    <div class="latest-posts__post-list">
+      {% for post in latest_posts %}
+        {% include ['partials/teases/tease-latest.twig', 'partials/teases/tease.twig'] %}
+      {% endfor %}
+    </div>
+
+    <p class="latest-posts__view-all">
+      <a href="/updates" class="latest-posts__view-all--link">View All</a>
+    </p>
+
+  </div>
+
+</section>

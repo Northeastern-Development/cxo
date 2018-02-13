@@ -1,0 +1,51 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div class="post-wrapper">
+
+  <article class="post-single post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+
+    {% if post.get_thumbnail %}
+    <div class="post__image">
+      <figure class="post__figure">
+        <img src="{{post.thumbnail.src}}" alt="{{post.thumbnail.alt}}" class="post__img" />
+      </figure>
+    </div>
+    {% endif %}
+
+    <div class="post__header">
+      <div class="post__topic">
+      {% for term in post.terms %}
+        <a href="{{ term.link }}" class="post__topic--link">{{ term.name }}</a>
+      {% endfor %}
+      </div>
+      <div class="post__header-titles">
+        <h1 class="post__title">{{ post.title }}</h1>
+        <div class="post__header-meta">
+          {% if post.byline_name %}
+          <p class="post__byline">
+            <span class="post__byline-by">By</span>
+            <span class="post__byline-name">{{ post.byline_name }}</span>
+            {% if post.byline_title %}
+            <span class="post__byline-title">{{ post.byline_title }}</span>
+            {% endif %}
+          </p>
+          {% endif %}
+          <p class="post__published">{{ post.date }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="post__content article-text__content">
+      {{post.content}}
+    </div>
+
+  </article>
+
+</div> <!-- /post-wrapper -->
+
+<div class="single-posts">
+  {% include 'partials/wayfinding/posts-latest.twig' %}
+</div>
+
+{% endblock %}
